@@ -9,8 +9,8 @@
   [
     {
       "data": {
-        "url":"https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/data/aus_states_clean.geojson",
-        "format":{ "type":"topojson", "feature":"aus_states_clean"} },
+        "url":"https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/data/aus_states_clean_clipped.geojson",
+        "format":{ "type":"topojson", "feature":"aus_states_clean_clipped"} },
         "mark": {"type": "geoshape", "fill": "lightgray", "stroke":"white"}
     },
     {
@@ -18,35 +18,33 @@
           "url": "https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/data/aircraft.csv"
         },
         "transform": [
-        { 
-          "filter": {"not":{ "field": "airport", "oneOf": ["All Australian Airports"]}}
-        },
-        {
-          "aggregate":
-          [
-            {"op": "sum", "field": "Dom_Acm_In", "as": "Dom_Acm_In_Sum"},
-            {"op": "sum", "field": "Dom_Acm_Out", "as": "Dom_Acm_Out_Sum"},
-            {"op": "sum", "field": "Dom_Acm_Total", "as": "Dom_Acm_Total_Sum"},
-            {"op": "sum", "field": "Int_Acm_In", "as": "Int_Acm_In_Sum"},
-            {"op": "sum", "field": "Int_Acm_Out", "as": "Int_Acm_Out_Sum"},
-            {"op": "sum", "field": "Int_Acm_Total", "as": "Int_Acm_Total_Sum"},
-            {"op": "sum", "field": "Acm_In", "as": "Acm_In_Sum"},
-            {"op": "sum", "field": "Acm_Out", "as": "Acm_Out_Sum"},
-            {"op": "sum", "field": "Acm_Total", "as": "Acm_Total_Sum"},
-            {"op": "sum", "field": "Year", "as": "Year_Sum"},
-            {"op": "sum", "field": "Month", "as": "Month_Sum"}
-          ],
-          "groupby": ["airport"]
-        },
-        {
-          "lookup": "airport",
-          "from": {
-            "data": {"url": "https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/data/australian_airports.csv"},
-            "key": "airport",
-            "fields": ["latitude", "longitude"]
+          {"calculate": "upper(datum.airport)", "as": "airport_upper"},
+          { "filter": {"not":{ "field": "airport", "oneOf": ["All Australian Airports"]}}},
+          { "aggregate":
+            [
+              {"op": "sum", "field": "Dom_Acm_In", "as": "Dom_Acm_In_Sum"},
+              {"op": "sum", "field": "Dom_Acm_Out", "as": "Dom_Acm_Out_Sum"},
+              {"op": "sum", "field": "Dom_Acm_Total", "as": "Dom_Acm_Total_Sum"},
+              {"op": "sum", "field": "Int_Acm_In", "as": "Int_Acm_In_Sum"},
+              {"op": "sum", "field": "Int_Acm_Out", "as": "Int_Acm_Out_Sum"},
+              {"op": "sum", "field": "Int_Acm_Total", "as": "Int_Acm_Total_Sum"},
+              {"op": "sum", "field": "Acm_In", "as": "Acm_In_Sum"},
+              {"op": "sum", "field": "Acm_Out", "as": "Acm_Out_Sum"},
+              {"op": "sum", "field": "Acm_Total", "as": "Acm_Total_Sum"},
+              {"op": "sum", "field": "Year", "as": "Year_Sum"},
+              {"op": "sum", "field": "Month", "as": "Month_Sum"}
+            ],
+            "groupby": ["airport", "airport_upper"]
+          },
+          {
+            "lookup": "airport_upper",
+            "from": {
+              "data": {"url": "https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/data/australian_airports.csv"},
+              "key": "airport",
+              "fields": ["latitude", "longitude"]
+            }
           }
-        }
-      ],
+        ],
       "mark": {"type": "circle"},
       "encoding": {
         "longitude": {"field": "longitude", "type": "quantitative"},
