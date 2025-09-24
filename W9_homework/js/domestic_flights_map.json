@@ -4,13 +4,13 @@
   "height": 450,
   "title": "Australian Domestic Airports",
   "config": {"font": "Comic Sans MS"},
-  "projection": {"type": "mercator"},
+  "projection": {"type":"mercator"},
   "layer": 
   [
     {
       "data": {
-        "url":"https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/data/aus_states_clean_clipped.geojson",
-        "format":{ "type":"topojson", "feature":"aus_states_clean_clipped"} },
+        "url":"https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/data/aus_states.json",
+        "format":{ "type":"topojson", "feature":"aus_states"} },
         "mark": {"type": "geoshape", "fill": "lightgray", "stroke":"white"}
     },
     {
@@ -18,7 +18,6 @@
           "url": "https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/data/aircraft.csv"
         },
         "transform": [
-          {"calculate": "upper(datum.airport)", "as": "airport_upper"},
           { "filter": {"not":{ "field": "airport", "oneOf": ["All Australian Airports"]}}},
           { "aggregate":
             [
@@ -34,10 +33,10 @@
               {"op": "sum", "field": "Year", "as": "Year_Sum"},
               {"op": "sum", "field": "Month", "as": "Month_Sum"}
             ],
-            "groupby": ["airport", "airport_upper"]
+            "groupby": ["airport"]
           },
           {
-            "lookup": "airport_upper",
+            "lookup": "airport",
             "from": {
               "data": {"url": "https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/data/australian_airports.csv"},
               "key": "airport",
@@ -57,8 +56,7 @@
         "color": {
           "field": "Dom_Acm_Total_Sum",
           "type": "quantitative",
-          "title": "Total Flights",
-          "scale": {"scheme": "reds"}
+          "scale": {"scheme": "greens"}
         }
       }
     }
