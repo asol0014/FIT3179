@@ -1,4 +1,4 @@
-AIRPORT,Year,Month,Dom_Acm_In,Dom_Acm_Out,Dom_Acm_Total,Int_Acm_In,Int_Acm_Out,Int_Acm_Total,Acm_In,Acm_Out,Acm_Total
+airport,Year,Month,Dom_Acm_In,Dom_Acm_Out,Dom_Acm_Total,Int_Acm_In,Int_Acm_Out,Int_Acm_Total,Acm_In,Acm_Out,Acm_Total
 ADELAIDE,1985,1,1908,1902,3810,35,34,69,1943,1936,3879
 ADELAIDE,1985,2,1672,1668,3340,31,31,62,1703,1699,3402
 ADELAIDE,1985,3,1878,1878,3756,39,40,79,1917,1918,3835

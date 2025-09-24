@@ -4,7 +4,7 @@
   "height": 450,
   "title": "Australian Domestic Airports",
   "config": {"font": "Comic Sans MS"},
-  "projection": {"type": "Mercator"},
+  "projection": {"type": "mercator"},
   "layer": 
   [
     {
@@ -12,6 +12,44 @@
         "url":"https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/data/aus_states_clean.geojson",
         "format":{ "type":"topojson", "feature":"aus_states_clean"} },
         "mark": {"type": "geoshape", "fill": "lightgray", "stroke":"white"}
+    },
+    {
+      "data": {
+          "url": "https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/data/aircraft.csv"
+        },
+        "transform": [
+        { "filter": { "field": "airport", "oneOf": ["All Australian Airports"], "not": true} },
+        {
+          "aggregate": [{ "op": "sum", "as": "total_flights" }],
+          "groupby": ["airport"]
+        },
+        {
+          "lookup": "airport",
+          "from": {
+            "data": {"url": "https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/data/australian_airports.csv"},
+            "key": "airport",
+            "fields": ["latitude", "longitude"]
+          }
+        }
+      ],
+      "mark": {"type": "circle", "tooltip": {"content": "data"}},
+      "encoding": {
+        "longitude": {"field": "longitude", "type": "quantitative"},
+        "latitude": {"field": "latitude", "type": "quantitative"},
+        "size": {
+          "field": "total_flights",
+          "type": "quantitative",
+          "title": "Total Flights from 1975-2025",
+          "scale": {"domain": [4, 8]}
+        },
+        "color": {
+          "field": "total_flights",
+          "type": "quantitative",
+          "title": "Total Flights",
+          "scale": {"scheme": "reds"}
+        }
+      }
     }
+
   ]
 }
