@@ -1,16 +1,17 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 800,
+  "width": 450,
   "height": 450,
   "title": "Australian Domestic Airports",
-  "projection": {"type": "equalEarth"},
-  "layer": [
+  "config": {"font": "Comic Sans MS"},
+  "projection": {"type": "Mercator"},
+  "layer": 
+  [
     {
       "data": {
         "url":"https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/data/aus_states_clean.geojson",
-        "format": {"type": "json"}
-      },
-      "mark": {"type": "geoshape", "fill": "lightgray", "stroke":"white"}
+        "format":{ "type":"topojson", "feature":"aus_states_clean"} },
+        "mark": {"type": "geoshape", "fill": "lightgray", "stroke":"white"}
     }
   ]
 }
