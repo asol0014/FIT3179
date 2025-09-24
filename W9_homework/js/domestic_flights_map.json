@@ -18,9 +18,24 @@
           "url": "https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/data/aircraft.csv"
         },
         "transform": [
-        { "filter": { "field": "airport", "oneOf": ["All Australian Airports"], "not": true} },
+        { 
+          "filter": { "field": "airport", "oneOf": ["All Australian Airports"]}
+        },
         {
-          "aggregate": [{ "op": "sum", "as": "total_flights" }],
+          "aggregate":
+          [
+            {"op": "sum", "field": "Dom_Acm_In", "as": "Dom_Acm_In_Sum"},
+            {"op": "sum", "field": "Dom_Acm_Out", "as": "Dom_Acm_Out_Sum"},
+            {"op": "sum", "field": "Dom_Acm_Total", "as": "Dom_Acm_Total_Sum"},
+            {"op": "sum", "field": "Int_Acm_In", "as": "Int_Acm_In_Sum"},
+            {"op": "sum", "field": "Int_Acm_Out", "as": "Int_Acm_Out_Sum"},
+            {"op": "sum", "field": "Int_Acm_Total", "as": "Int_Acm_Total_Sum"},
+            {"op": "sum", "field": "Acm_In", "as": "Acm_In_Sum"},
+            {"op": "sum", "field": "Acm_Out", "as": "Acm_Out_Sum"},
+            {"op": "sum", "field": "Acm_Total", "as": "Acm_Total_Sum"},
+            {"op": "sum", "field": "Year", "as": "Year_Sum"},
+            {"op": "sum", "field": "Month", "as": "Month_Sum"}
+          ],
           "groupby": ["airport"]
         },
         {
@@ -37,19 +52,18 @@
         "longitude": {"field": "longitude", "type": "quantitative"},
         "latitude": {"field": "latitude", "type": "quantitative"},
         "size": {
-          "field": "total_flights",
+          "field": "Dom_Acm_Total_Sum",
           "type": "quantitative",
           "title": "Total Flights from 1975-2025",
           "scale": {"domain": [4, 8]}
         },
         "color": {
-          "field": "total_flights",
+          "field": "Dom_Acm_Total_Sum",
           "type": "quantitative",
           "title": "Total Flights",
           "scale": {"scheme": "reds"}
         }
       }
     }
-
   ]
 }
