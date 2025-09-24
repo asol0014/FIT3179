@@ -1,7 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 450,
-  "height": 450,
+  "width": "container",
   "title": "Australian Domestic Flights",
   "config": {"font": "Comic Sans MS"},
   "projection": {"type":"mercator"},
@@ -44,7 +43,7 @@
             }
           }
         ],
-      "mark": {"type": "circle"},
+      "mark": {"type": "circle", "tooltip": {"content": "data"}},
       "encoding": {
         "longitude": {"field": "longitude", "type": "quantitative"},
         "latitude": {"field": "latitude", "type": "quantitative"},
@@ -56,7 +55,7 @@
         "color": {
           "field": "Dom_Acm_Total_Sum",
           "type": "quantitative",
-          "scale": {"scheme": "greens"}
+          "scale": {"scheme": "blues"}
         }
       }
     }
