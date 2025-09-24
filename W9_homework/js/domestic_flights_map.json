@@ -19,7 +19,7 @@
         },
         "transform": [
         { 
-          "filter": { "field": "airport", "oneOf": ["All Australian Airports"]}
+          "filter": {"not":{ "field": "airport", "oneOf": ["All Australian Airports"]}}
         },
         {
           "aggregate":
@@ -47,15 +47,14 @@
           }
         }
       ],
-      "mark": {"type": "circle", "tooltip": {"content": "data"}},
+      "mark": {"type": "circle"},
       "encoding": {
         "longitude": {"field": "longitude", "type": "quantitative"},
         "latitude": {"field": "latitude", "type": "quantitative"},
         "size": {
           "field": "Dom_Acm_Total_Sum",
           "type": "quantitative",
-          "title": "Total Flights from 1975-2025",
-          "scale": {"domain": [4, 8]}
+          "title": "Total Flights from 1975-2025"
         },
         "color": {
           "field": "Dom_Acm_Total_Sum",
