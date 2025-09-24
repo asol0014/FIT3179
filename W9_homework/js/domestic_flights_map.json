@@ -1,7 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 400,
-  "height":400,
+  "width": "container",
   "title": "Total Departures & Arrivals at Australian Domestic Airports",
   "config": {"font": "Comic Sans MS"},
   "projection": {"type":"mercator"},
