@@ -59,7 +59,7 @@
           "scale": {
             "type": "sequential",
             "domain": [0, 8000000],
-            "range": ["#807dba", "#3f007d"]
+            "range": ["#fcfbfd", "#3f007d"]
           }
         },
           "tooltip": [
