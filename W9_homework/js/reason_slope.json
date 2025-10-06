@@ -1,0 +1,20 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "data": {"url":"https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/data/reason_shortstay.csv"},
+  "description": "Slope graph",
+  "mark": "line",
+  "width": {"step": 50},
+  "encoding": {
+    "x": {
+      "field": " Year",
+      "type": "ordinal",
+      "scale": {"padding": 0.5}
+    },
+    "y": {
+      "aggregate": "sum",
+      "field": " OBS_VALUE",
+      "type": "quantitative"
+    },
+    "color": {"field": "Reason for journey", "type": "nominal"}
+  }
+}
