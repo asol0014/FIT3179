@@ -7,17 +7,17 @@
       "data": {
         "url": "https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/data/world_countries.json",
         "format": {
-          "type": "topojson",
-          "feature": "world_countries"
+          "type": "json"
         }
       },
       "projection": {
-        "type": "equalEarth"
+        "type": "equalEarth",
+        "rotate": [-150, 0,0]
       },
       "mark": {
         "type": "geoshape",
-        "fill": "lightgray",
-        "stroke": "white"
+        "fill": null,
+        "stroke": "black"
       }
     },
     {
@@ -26,11 +26,11 @@
       },
       "transform": [
         {"filter": {"field": "Origin", "equal": "Australia"}},
-        {
-          "lookup": "Origin",
+        {"filter": {"field": "TIME_PERIOD", "equal": "1975-09"}},
+        {"lookup": "Origin",
           "from": {
             "data": {
-              "url": "https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/data/country_centroid.csv"
+              "url": "https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/data/country_centroids.csv"
             },
             "key": "Country",
             "fields": ["Latitude", "Longitude"]
@@ -41,7 +41,7 @@
           "lookup": "Country of Stay/Residence",
           "from": {
             "data": {
-              "url": "https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/data/country_centroid.csv"
+              "url": "https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/data/country_centroids.csv"
             },
             "key": "Country",
             "fields": ["Latitude", "Longitude"]
