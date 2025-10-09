@@ -7,31 +7,48 @@
       "data": {
         "url": "https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/data/world_countries.json",
         "format": {
-          "type": "json"
+          "type": "topojson",
+          "feature": "world_countries"
         }
       },
       "projection": {
-        "type": "equalEarth",
-        "rotate": [-150, 0,0]
+        "type": "equalEarth"
       },
       "mark": {
         "type": "geoshape",
-        "fill": null,
-        "stroke": "darkgrey"
+        "fill": "lightgray",
+        "stroke": "white"
       }
     },
     {
       "data": {
-        "url": "https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/data/country_passengers_from.csv"
+        "url": "data/airports.csv"
+      },
+      "projection": {
+        "type": "albersUsa"
+      },
+      "mark": "circle",
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "size": {"value": 5},
+        "color": {"value": "gray"}
+      }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/data/country.csv"
       },
       "transform": [
-        {"filter": {"field": "Origin", "equal": "Australia"}},
-        {"filter": "test(/other/i, datum['Country of Stay/Residence']) == false"},
-        {"filter": "test(/total/i, datum['Country of Stay/Residence']) == false"},
-        {"filter": "test(/not stated/i, datum['Country of Stay/Residence']) == false"},
-        {"filter": "test(/UK, CIs & IOM/i, datum['Country of Stay/Residence']) == false"},
-        {"filter": {"field": "TIME_PERIOD", "equal": "1975-09"}},
-        {"lookup": "Origin",
+        {"filter": {"field": "ADMIN", "equal": "Australia"}},
+        {
+          "lookup": "ADMIN",
           "from": {
             "data": {
               "url": "https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/data/country_centroids.csv"
@@ -48,36 +65,19 @@
               "url": "https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/data/country_centroids.csv"
             },
             "key": "Country",
-            "fields": ["Latitude", "Longitude"]
+            "fields": ["latitude", "longitude"]
           },
           "as": ["dest_latitude", "dest_longitude"]
         }
       ],
-      "projection": {"type": "equalEarth", "rotate": [-150, 0,0]},
-      "mark": {"type": "rule"},
+      "projection": {"type": "albersUsa"},
+      "mark": {"type": "rule", "strokeWidth": 3},
       "encoding": {
         "longitude": {"field": "origin_longitude", "type": "quantitative"},
         "latitude": {"field": "origin_latitude", "type": "quantitative"},
         "longitude2": {"field": "dest_longitude"},
         "latitude2": {"field": "dest_latitude"},
-        "tooltip": [
-          {"field": "Origin", "type": "nominal", "title": "Origin Country"},
-          {"field": "Country of Stay/Residence", "type": "nominal", "title": "Destination"},
-          {"field": "OBS_VALUE", "type": "quantitative", "title": "Number of Passengers"},
-          {"field": "TIME_PERIOD", "type": "nominal", "title": "Period"}
-        ],
-        "color": {
-          "field": "OBS_VALUE",
-          "type": "quantitative",
-          "scale": {"scheme": "reds"}, 
-          "title": "Observations"
-        },
-        "strokeWidth": {
-          "field": "OBS_VALUE",
-          "type": "quantitative",
-          "scale": {"range": [1, 10]}, 
-          "title": "Observations"
-        }
+        "color": {"value": "steelblue"} 
       }
     }
   ]
