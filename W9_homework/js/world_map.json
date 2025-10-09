@@ -26,6 +26,10 @@
       },
       "transform": [
         {"filter": {"field": "Origin", "equal": "Australia"}},
+        {"filter": "test(/other/i, datum['Country of Stay/Residence']) == false"},
+        {"filter": "test(/total/i, datum['Country of Stay/Residence']) == false"},
+        {"filter": "test(/not stated/i, datum['Country of Stay/Residence']) == false"},
+        {"filter": "test(/UK, CIs & IOM/i, datum['Country of Stay/Residence']) == false"},
         {"filter": {"field": "TIME_PERIOD", "equal": "1975-09"}},
         {"lookup": "Origin",
           "from": {
@@ -49,14 +53,31 @@
           "as": ["dest_latitude", "dest_longitude"]
         }
       ],
-      "projection": {"type": "equalEarth"},
-      "mark": {"type": "rule", "strokeWidth": 3},
+      "projection": {"type": "equalEarth", "rotate": [-150, 0,0]},
+      "mark": {"type": "rule"},
       "encoding": {
         "longitude": {"field": "origin_longitude", "type": "quantitative"},
         "latitude": {"field": "origin_latitude", "type": "quantitative"},
         "longitude2": {"field": "dest_longitude"},
         "latitude2": {"field": "dest_latitude"},
-        "color": {"value": "steelblue"} 
+        "tooltip": [
+          {"field": "Origin", "type": "nominal", "title": "Origin Country"},
+          {"field": "Country of Stay/Residence", "type": "nominal", "title": "Destination"},
+          {"field": "OBS_VALUE", "type": "quantitative", "title": "Number of Passengers"},
+          {"field": "TIME_PERIOD", "type": "nominal", "title": "Period"}
+        ],
+        "color": {
+          "field": "OBS_VALUE",
+          "type": "quantitative",
+          "scale": {"scheme": "reds"}, 
+          "title": "Observations"
+        },
+        "strokeWidth": {
+          "field": "OBS_VALUE",
+          "type": "quantitative",
+          "scale": {"range": [1, 10]}, 
+          "title": "Observations"
+        }
       }
     }
   ]
