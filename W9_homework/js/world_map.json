@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-  "width": "container",
+  "width": 1000,
   "params": [
   {
     "name": "YearParam",
@@ -79,6 +79,7 @@
           "as": ["dest_latitude", "dest_longitude"]
         }
       ],
+      "layer":[{
       "projection": {"type": "equalEarth", "rotate": [-150, 0,0]},
       "mark": {"type": "rule"},
       "encoding": {
@@ -105,6 +106,42 @@
           "title": "Number of incoming passengers"
         }
       }
+    },
+    {
+      "mark": {"type": "circle", "color": "null", "size": 10},
+      "encoding": {
+        "longitude": {"field": "dest_longitude", "type": "quantitative"},
+        "latitude": {"field": "dest_latitude", "type": "quantitative"}
+      }
+    },
+    {
+      "transform": [
+        {
+          "calculate": "toNumber(datum.OBS_VALUE)",
+          "as": "OBS_VALUE_int"
+        },
+        {
+          "window": [{"op": "rank", "as": "rank"}],
+          "sort": [{"field": "OBS_VALUE_int", "order": "descending"}]
+        },
+        {
+          "filter": "datum.rank <= 10"
+        }
+      ],
+      "mark": {"type": "text", "dy": -10, "dx": 0, "fontWeight": "lighter"},
+      "encoding": {
+        "longitude": {"field": "dest_longitude", "type": "quantitative"},
+        "latitude": {"field": "dest_latitude", "type": "quantitative"},
+        "text": {"field": "Country of Stay/Residence", "type": "nominal"},
+        "tooltip": [
+          {"field": "Origin", "type": "nominal", "title": "Origin Country"},
+          {"field": "Country of Stay/Residence", "type": "nominal", "title": "Destination"},
+          {"field": "OBS_VALUE", "type": "quantitative", "title": "Number of Passengers"},
+          {"field": "TIME_PERIOD", "type": "nominal", "title": "Period"}
+        ]
+      }
     }
+    ]
+  } 
   ]
 }
