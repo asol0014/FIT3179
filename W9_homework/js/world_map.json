@@ -1,7 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-  "height": 800,
-  "width": 1000,
+  "width": "container",
   "params": [
   {
     "name": "YearParam",
