@@ -96,13 +96,13 @@
           "field": "OBS_VALUE",
           "type": "quantitative",
           "scale": {"scheme": "reds"}, 
-          "title": "Observations"
+          "title": "Number of incoming passengers"
         },
         "strokeWidth": {
           "field": "OBS_VALUE",
           "type": "quantitative",
           "scale": {"range": [1, 10]}, 
-          "title": "Observations"
+          "title": "Number of incoming passengers"
         }
       }
     }
