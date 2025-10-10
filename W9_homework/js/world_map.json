@@ -1,6 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
   "width": "container",
+  "title": "Incoming International Passengers",
+
   "params": [
   {
     "name": "YearParam",
