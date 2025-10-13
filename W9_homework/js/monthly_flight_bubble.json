@@ -1,8 +1,5 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-  "title": "Which months have the most planes leaving Australian airports?/ Which months have the most planes arriving at Australian airports?",
-  "description": "Punchcard Visualization like on Github. The day on y-axis uses a custom order from Monday to Sunday.  The sort property supports both full day names (e.g., 'Monday') and their three letter initials (e.g., 'mon') -- both of which are case insensitive.",
-  "data": { "url": "https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/data/monthly_flights_in.csv"},
   "params": [
     {
       "name": "airport_selection",
@@ -61,43 +58,94 @@
       }
     }
   ],
-  "transform": [
-    {"filter": "datum.Year >= 1990"},
-    {"filter": "datum.AIRPORT == airport_selection"},
-    {"filter": "datum.Acm_In > 0"}
-  ],
-  "mark": "circle",
-  "encoding": {
-    "y": {
-      "field": "Month",
-      "type": "ordinal",
-      "timeUnit": "month"
+
+  "vconcat":[
+    {
+      "title": "Which months have the most planes arriving at Australian airports?",
+      "data": { "url": "https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/data/monthly_flights_in.csv"},
+      "transform": [
+        {"filter": "datum.Year >= 1990"},
+        {"filter": "datum.AIRPORT == airport_selection"},
+        {"filter": "datum.Acm_In > 0"}
+      ],
+      "mark": "circle",
+      "encoding": {
+        "y": {
+          "field": "Month",
+          "type": "ordinal",
+          "timeUnit": "month"
+        },
+        "x": {
+          "field": "Year",
+          "type": "ordinal",
+          "timeUnit": "year"
+        },
+        "size": {
+          "field": "Acm_In",
+          "type": "quantitative",
+          "aggregate": "sum",
+          "scale": {"type": "log"}
+        },
+        "color": {
+          "field": "Acm_In",
+          "type": "quantitative",
+          "aggregate": "sum",
+          "scale": {
+            "type": "log",
+            "scheme": "magma"}
+        },
+        "tooltip": [
+          {"field": "Month", "type": "temporal", "format": "%B"},
+          {"field": "Year", "type": "temporal", "format": "%Y"},
+          {"field": "Dom_Acm_In", "aggregate": "sum", "title": "Domestic Arrivals"},
+          {"field": "Int_Acm_In", "aggregate": "sum", "title": "International Arrivals"},
+          {"field": "Acm_In", "aggregate": "sum", "title": "Total Arrivals"}
+        ]
+      }
     },
-    "x": {
-      "field": "Year",
-      "type": "ordinal",
-      "timeUnit": "year"
-    },
-    "size": {
-      "field": "Acm_In",
-      "type": "quantitative",
-      "aggregate": "sum",
-      "scale": {"type": "log"}
-    },
-    "color": {
-      "field": "Acm_In",
-      "type": "quantitative",
-      "aggregate": "sum",
-      "scale": {
-        "type": "log",
-        "scheme": "magma"      }
-    },
-    "tooltip": [
-      {"field": "Month", "type": "temporal", "format": "%B"},
-      {"field": "Year", "type": "temporal", "format": "%Y"},
-      {"field": "Dom_Acm_In", "aggregate": "sum", "title": "Domestic Arrivals"},
-      {"field": "Int_Acm_In", "aggregate": "sum", "title": "International Arrivals"},
-      {"field": "Acm_In", "aggregate": "sum", "title": "Total Arrivals"}
-    ]
-  }
+  {
+      "title": "Which months have the most planes leaving Australian airports?/ ",
+      "data": { "url": "https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/data/monthly_flights_out.csv"},
+      "transform": [
+        {"filter": "datum.Year >= 1990"},
+        {"filter": "datum.AIRPORT == airport_selection"},
+        {"filter": "datum.Acm_Out > 0"}
+      ],
+      "mark": "circle",
+      "encoding": {
+        "y": {
+          "field": "Month",
+          "type": "ordinal",
+          "timeUnit": "month"
+        },
+        "x": {
+          "field": "Year",
+          "type": "ordinal",
+          "timeUnit": "year"
+        },
+        "size": {
+          "field": "Acm_Out",
+          "type": "quantitative",
+          "aggregate": "sum",
+          "scale": {"type": "log"}
+        },
+        "color": {
+          "field": "Acm_Out",
+          "type": "quantitative",
+          "aggregate": "sum",
+          "scale": {
+            "type": "log",
+            "scheme": "magma"
+            }
+        },
+        "tooltip": [
+          {"field": "Month", "type": "temporal", "format": "%B"},
+          {"field": "Year", "type": "temporal", "format": "%Y"},
+          {"field": "Dom_Acm_Out", "aggregate": "sum", "title": "Domestic Departures"},
+          {"field": "Int_Acm_Out", "aggregate": "sum", "title": "International Departures"},
+          {"field": "Acm_Out", "aggregate": "sum", "title": "Total Departures"}
+        ]
+      }
+    }
+  ]
 }
