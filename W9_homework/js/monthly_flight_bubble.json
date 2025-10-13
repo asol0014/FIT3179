@@ -1,5 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "title": {"text":"Hello", "fontSize": 20, "anchor": "middle"},
   "params": [
     {
       "name": "airport_selection",
