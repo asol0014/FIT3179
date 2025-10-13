@@ -1,0 +1,103 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "title": "Which months have the most planes leaving Australian airports?/ Which months have the most planes arriving at Australian airports?",
+  "description": "Punchcard Visualization like on Github. The day on y-axis uses a custom order from Monday to Sunday.  The sort property supports both full day names (e.g., 'Monday') and their three letter initials (e.g., 'mon') -- both of which are case insensitive.",
+  "data": { "url": "https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/data/monthly_flights_in.csv"},
+  "params": [
+    {
+      "name": "airport_selection",
+      "value": "All Australian Airports",
+      "bind": {
+        "input": "select",
+        "options": [
+          "ADELAIDE",
+          "ALICE SPRINGS",
+          "BALLINA",
+          "BRISBANE",
+          "CAIRNS",
+          "CANBERRA",
+          "DARWIN",
+          "GOLD COAST",
+          "HAMILTON ISLAND",
+          "HOBART",
+          "KARRATHA",
+          "LAUNCESTON",
+          "MACKAY",
+          "MELBOURNE",
+          "NEWCASTLE",
+          "PERTH",
+          "PROSERPINE",
+          "ROCKHAMPTON",
+          "SUNSHINE COAST",
+          "SYDNEY",
+          "TOWNSVILLE",
+          "All Australian Airports"
+        ],
+        "labels": [
+            "Adelaide",
+            "Alice Springs",
+            "Ballina",
+            "Brisbane",
+            "Cairns",
+            "Canberra",
+            "Darwin",
+            "Gold Coast",
+            "Hamilton Island",
+            "Hobart",
+            "Karratha",
+            "Launceston",
+            "Mackay",
+            "Melbourne",
+            "Newcastle",
+            "Perth",
+            "Proserpine",
+            "Rockhampton",
+            "Sunshine Coast",
+            "Sydney",
+            "Townsville",
+            "All Australian Airports"
+          ],
+        "name": "Select Airport: "
+      }
+    }
+  ],
+  "transform": [
+    {"filter": "datum.Year >= 1990"},
+    {"filter": "datum.AIRPORT == airport_selection"},
+    {"filter": "datum.Acm_In > 0"}
+  ],
+  "mark": "circle",
+  "encoding": {
+    "y": {
+      "field": "Month",
+      "type": "ordinal",
+      "timeUnit": "month"
+    },
+    "x": {
+      "field": "Year",
+      "type": "ordinal",
+      "timeUnit": "year"
+    },
+    "size": {
+      "field": "Acm_In",
+      "type": "quantitative",
+      "aggregate": "sum",
+      "scale": {"type": "log"}
+    },
+    "color": {
+      "field": "Acm_In",
+      "type": "quantitative",
+      "aggregate": "sum",
+      "scale": {
+        "type": "log",
+        "scheme": "magma"      }
+    },
+    "tooltip": [
+      {"field": "Month", "type": "temporal", "format": "%B"},
+      {"field": "Year", "type": "temporal", "format": "%Y"},
+      {"field": "Dom_Acm_In", "aggregate": "sum", "title": "Domestic Arrivals"},
+      {"field": "Int_Acm_In", "aggregate": "sum", "title": "International Arrivals"},
+      {"field": "Acm_In", "aggregate": "sum", "title": "Total Arrivals"}
+    ]
+  }
+}
