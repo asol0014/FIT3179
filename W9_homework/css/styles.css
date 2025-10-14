@@ -1,8 +1,9 @@
 body *{
-  font-family: 'Helvetica', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 h1 {
+  font-family: "TPF Display", sans-serif;
   font-weight: 900;
 }
 
