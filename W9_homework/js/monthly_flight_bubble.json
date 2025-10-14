@@ -1,6 +1,5 @@
 {
-  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-  "title": {"text":"Hello", "fontSize": 20, "anchor": "middle"},
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "params": [
     {
       "name": "airport_selection",
@@ -93,7 +92,7 @@
           "aggregate": "sum",
           "scale": {
             "type": "log",
-            "scheme": "magma"}
+            "scheme": "tealblues"}
         },
         "tooltip": [
           {"field": "Month", "type": "temporal", "format": "%B"},
@@ -136,7 +135,7 @@
           "aggregate": "sum",
           "scale": {
             "type": "log",
-            "scheme": "magma"
+            "scheme": "tealblues"
             }
         },
         "tooltip": [

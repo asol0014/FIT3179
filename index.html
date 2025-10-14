@@ -24,8 +24,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Foldit:wght@100..900&display=swap" rel="stylesheet">
 
   <!-- Pixel Display font -->
-  <link href="https://db.onlinewebfonts.com/c/f3511a8389b334f691fe912f0ac8e64a?family=TPF+Display" rel="stylesheet">
-
+  <link href="https://db.onlinewebfonts.com/c/76539b4ccd152e469e101c342d949073?family=LLPixel" rel="stylesheet">
   <!-- Frutiger Font -->
   <link href="https://db.onlinewebfonts.com/c/0e1927dde1e5ce1dcc975658afeb9e7c?family=FrutigerLTStd-Light" rel="stylesheet">
 
@@ -39,7 +38,7 @@
 
   <div class="page">
 
-    <!-- pure grid group -->
+    <!-- HEADING pure grid group -->
     <div class="pure-g">
       <div class="pure-u-1-1">
         <h1>FLIGHT TRAVEL TRENDS IN AUSTRALIA</h1>
@@ -49,29 +48,60 @@
     </div>
     <!-- end pure grid group -->
 
-    <!-- pure grid group -->
+    <!-- WORLD MAP pure grid group -->
       <div class="pure-g">
       <div class="pure-u-1-1">
-        <h2>What countries do visiotrs from around the world fly in from?</h1>
+        <h2>What countries do visitors from around the world fly in from?</h1>
         <p>A world map showing what countries visitors and returning residents fly in from. Select from the drop downs to filter by year and month. The top 10 countries are annotated.</p>
         <div id="vis2" class="vis-container"></div>
       </div>
     </div>
     <!-- end pure grid group -->
+    
+    <!-- AUS MAP BUBBLE HEADING pure grid group -->
     <div class="pure-g">
         <div class="pure-u-1-1">
           <h2>Which are Australia's busiest airports?</h1>
       </div>
     </div>
+    <!-- end pure grid group -->
      
-    <!-- pure grid group -->
+    <!-- AUS MAP BUBBLE pure grid group -->
     <div class="pure-g">
       <div class="pure-u-5-24">
+        <p style="text-align: right;">The map on the left shows the 20 busiest airports in Australia. Noteably, most of Australia's airports are on the east coast, and international airports are genrally busier in terms of passengers flying in and out of them each year. </p>
         <p>Description of the general trends of the chart</p>
       </div>
       <div class="pure-u-1-24"></div>
       <div class="pure-u-18-24">
         <div id="vis1" class="vis-container"></div>
+      </div>
+    </div>
+    <!-- end pure grid group -->
+    
+    <!-- BUBBLE CHART pure grid group -->
+    <div class="pure-g">
+        <div class="pure-u-1-1">
+          <h2>Since 1985, how has the popularity of air travel changed in Australia?</h1>
+        <div class="pure-u-1-1">
+          <div id="vis3" class="vis-container"></div>
+        </div>
+        <div class="pure-u-1-1">
+          <p>Points to note: 9/11 attacks saw a reduction in flights. So did the COVID-19 pandemic which sawa a dramatic reduction from March to April in 2020. It is not until March 2022 we see a recovery to precovid levels. Switch between different states to see how flights decreased more or less than the national average.</p>
+          <p>Further: note the alignment flights in approx = flights out</p>
+        </div>
+
+    </div>
+    </div>
+    <!-- end pure grid group -->
+
+
+    <!-- BUBBLE CHART HEADING pure grid group -->
+    <div class="pure-g">
+        <div class="pure-u-1-1">
+          <h2>Specifically, what's the most popular month to fly during?</h1>
+          <p>Insert line chart with zoom scale?? </p>
+
       </div>
     </div>
     <!-- end pure grid group -->
@@ -84,6 +114,8 @@
     vegaEmbed('#vis1', specVis1, { "actions": false });
     var specVis2 = "https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/js/world_map.json";
     vegaEmbed('#vis2', specVis2, { "actions": false });
+    var specVis3 = "https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/js/monthly_flight_bubble.json";
+    vegaEmbed('#vis3', specVis3, { "actions": false });
   </script>
 </body>
 
