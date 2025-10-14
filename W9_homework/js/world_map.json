@@ -99,7 +99,7 @@
         "color": {
           "field": "OBS_VALUE",
           "type": "quantitative",
-          "scale": {"scheme": "reds"}, 
+          "scale": {"scheme": "tealblues"}, 
           "title": "Number of incoming passengers"
         },
         "strokeWidth": {

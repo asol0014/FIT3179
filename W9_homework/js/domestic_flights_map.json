@@ -60,9 +60,7 @@
           "title":"Total Flights from 1975-2025",
           "type": "quantitative",
           "scale": {
-            "type": "sequential",
-            "domain": [0, 8000000],
-            "range": ["#fcfbfd", "#3f007d"]
+            "scheme": "tealblues"
           },
           "legend": null
 
