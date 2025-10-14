@@ -51,7 +51,9 @@
         "size": {
           "field": "Dom_Acm_Total_Sum",
           "type": "quantitative",
-          "title": "Total Flights from 1975-2025"
+          "title": "Total Flights from 1975-2025",
+          "legend": null
+
         },
         "color": {
           "field": "Dom_Acm_Total_Sum",
