@@ -1,0 +1,217 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "params": [
+    {
+      "name": "CHART1_airport_selection",
+      "value": "MELBOURNE",
+      "bind": {
+        "input": "select",
+        "options": [
+          "ADELAIDE",
+          "BRISBANE",
+          "CAIRNS",
+          "CANBERRA",
+          "DARWIN",
+          "GOLD COAST",
+          "HOBART",
+          "MELBOURNE",
+          "NEWCASTLE",
+          "PERTH",
+          "SUNSHINE COAST",
+          "SYDNEY",
+          "TOWNSVILLE",
+          "All Australian Airports"
+        ],
+        "labels": [
+            "Adelaide",
+            "Brisbane",
+            "Cairns",
+            "Canberra",
+            "Darwin",
+            "Gold Coast",
+            "Hobart",
+            "Melbourne",
+            "Newcastle",
+            "Perth",
+            "Sunshine Coast",
+            "Sydney",
+            "Townsville",
+            "All Australian Airports"
+          ],
+        "name": "Select first airport for comparison: "
+      }
+    },
+    {
+      "name": "CHART2_airport_selection",
+      "value": "BRISBANE",
+      "bind": {
+        "input": "select",
+        "options": [
+          "ADELAIDE",
+          "BRISBANE",
+          "CAIRNS",
+          "CANBERRA",
+          "DARWIN",
+          "GOLD COAST",
+          "HOBART",
+          "KARRATHA",
+          "LAUNCESTON",
+          "MELBOURNE",
+          "NEWCASTLE",
+          "PERTH",
+          "SUNSHINE COAST",
+          "SYDNEY",
+          "TOWNSVILLE",
+          "All Australian Airports"
+        ],
+        "labels": [
+            "Adelaide",
+            "Brisbane",
+            "Cairns",
+            "Canberra",
+            "Darwin",
+            "Gold Coast",
+            "Hobart",
+            "Karratha",
+            "Launceston",
+            "Melbourne",
+            "Newcastle",
+            "Perth",
+            "Sunshine Coast",
+            "Sydney",
+            "Townsville",
+            "All Australian Airports"
+          ],
+        "name": "Select first airport for comparison: "
+      }
+    }
+  ],
+  "data": {"url": "https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/data/INT_passengers.csv"},
+  "vconcat": [
+    {
+      "title": "Airport 1: Number of International Passenger Arrivals",
+      "transform": 
+      [
+        {"filter": "datum.AIRPORT == CHART1_airport_selection"}
+      ],
+      "width": "container",
+      "mark": {"type": "line", "color": "lightseagreen"},
+      "encoding": {
+      "x": {
+        "field": "Date2", "type": "temporal",
+        "title": null,
+
+        "scale": {"domain": {"param": "brush"}},
+
+        "axis": {
+          "tickCount": 8,
+          "labelAlign": "left",
+          "labelExpr": "[timeFormat(datum.value, '%b'), timeFormat(datum.value, '%m') == '01' ? timeFormat(datum.value, '%Y') : '']",
+          "labelOffset": 4,
+          "labelPadding": -24,
+          "tickSize": 30,
+          "gridDash": {
+          "condition": {"test": {"field": "value", "timeUnit": "month", "equal": 1}, "value": []},
+          "value": [2,2]
+          },
+          "tickDash": {
+          "condition": {"test": {"field": "value", "timeUnit": "month", "equal": 1}, "value": []},
+          "value": [2,2]
+          }
+      }
+    },
+    "y": {
+      "field": "Int_Pax_In", "type": "quantitative"
+    }
+  }
+  },
+  {
+      "title": "Airport 2: Number of International Passenger Arrivals",
+      "transform": 
+      [
+        {"filter": "datum.AIRPORT == CHART2_airport_selection"}
+      ],
+      "width": "container",
+      "mark": {"type": "line", "color": "darkslateblue"},
+      "encoding": {
+      "x": {
+        "field": "Date2", "type": "temporal",
+        "title": null,
+
+        "scale": {"domain": {"param": "brush"}},
+
+        "axis": {
+          "tickCount": 8,
+          "labelAlign": "left",
+          "labelExpr": "[timeFormat(datum.value, '%b'), timeFormat(datum.value, '%m') == '01' ? timeFormat(datum.value, '%Y') : '']",
+          "labelOffset": 4,
+          "labelPadding": -24,
+          "tickSize": 30,
+          "gridDash": {
+          "condition": {"test": {"field": "value", "timeUnit": "month", "equal": 1}, "value": []},
+          "value": [2,2]
+          },
+          "tickDash": {
+          "condition": {"test": {"field": "value", "timeUnit": "month", "equal": 1}, "value": []},
+          "value": [2,2]
+          }
+      }
+    },
+    "y": {
+      "field": "Int_Pax_In", "type": "quantitative", "title":null
+    }
+  }
+  },
+    {
+      "title": "Total Number of International Passenger Arrivals",
+      "transform": 
+      [
+        {"filter": "datum.AIRPORT == 'All Australian Airports'"}
+      ],
+      "width": "container",
+      "height": 60,
+      "mark": {"type": "line", "color": "lightgrey"},
+      "params": [
+        {
+          "name": "brush",
+          "select": {
+            "type": "interval", 
+            "encodings": ["x"]
+          }
+        }
+      ],
+      "encoding": {
+      "x": {
+        "field": "Date2",
+        "title": null,
+
+        "type": "temporal",
+        "timeUnit": "yearmonth",
+        "axis": {
+          "format": "%b %Y",
+          "tickCount": 8,
+          "labelAlign": "left",
+          "labelExpr": "[timeFormat(datum.value, '%b'), timeFormat(datum.value, '%m') == '01' ? timeFormat(datum.value, '%Y') : '']",
+          "labelOffset": 4,
+          "labelPadding": -24,
+          "tickSize": 30,
+          "gridDash": {
+          "condition": {"test": {"field": "value", "timeUnit": "month", "equal": 1}, "value": []},
+          "value": [2,2]
+          },
+          "tickDash": {
+          "condition": {"test": {"field": "value", "timeUnit": "month", "equal": 1}, "value": []},
+          "value": [2,2]
+          }
+      }
+      },
+      "y": {
+        "field": "Int_Pax_Total",
+        "type": "quantitative",
+        "axis": {"tickCount": 3, "grid": false},
+        "title": null
+      }
+    }
+  }
+]
+}
