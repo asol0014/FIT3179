@@ -92,10 +92,10 @@
     "concat": {
       "columns": 2  }},
 
-  "concat": [
+  "vconcat": [
     {
+      "width":"container",
       "title": "Airport 1 & 2: Number of International Passenger Arrivals",
-      "height":300,
       "layer": [
       {"transform": 
       [
@@ -180,7 +180,6 @@
   },
     {
       "title": "Airport 1 & 2: Number of International Passenger Depatures",
-      "height":300,
       "layer": [
       {"transform": 
       [
