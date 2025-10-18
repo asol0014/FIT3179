@@ -92,7 +92,7 @@
           "aggregate": "sum",
           "scale": {
             "type": "log",
-            "scheme": "tealblues"}
+            "scheme": "yellowgreenblue"}
         },
         "tooltip": [
           {"field": "Month", "type": "temporal", "format": "%B"},
@@ -135,7 +135,7 @@
           "aggregate": "sum",
           "scale": {
             "type": "log",
-            "scheme": "tealblues"
+            "scheme": "yellowgreenblue"
             }
         },
         "tooltip": [
