@@ -3,7 +3,7 @@
   "width": "container",
   "title": "Incoming International Passengers",
   "config": {"font": "Helvetica"}, 
-  "view": {"stroke": "null"},
+  "view": {"stroke": "white", "strokeOpacity":0},
   "params": [
   {
     "name": "YearParam",
