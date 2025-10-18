@@ -1,5 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "width": "container",
   "params": [
     {
       "name": "CHART1_airport_selection",
@@ -38,7 +39,7 @@
             "Townsville",
             "All Australian Airports"
           ],
-        "name": "Select first airport for comparison: "
+        "name": "Airport 1: "
       }
     },
     {
@@ -77,12 +78,13 @@
             "Melbourne",
             "Newcastle",
             "Perth",
+            "Proserpine",
             "Sunshine Coast",
             "Sydney",
             "Townsville",
             "All Australian Airports"
           ],
-        "name": "Select first airport for comparison: "
+        "name": "Airport 2: "
       }
     }
   ],
@@ -94,7 +96,6 @@
       [
         {"filter": "datum.AIRPORT == CHART1_airport_selection"}
       ],
-      "width": "container",
       "mark": {"type": "line", "color": "lightseagreen"},
       "encoding": {
       "x": {
@@ -168,7 +169,6 @@
       [
         {"filter": "datum.AIRPORT == 'All Australian Airports'"}
       ],
-      "width": "container",
       "height": 60,
       "mark": {"type": "line", "color": "lightgrey"},
       "params": [
