@@ -61,7 +61,7 @@
 
   "vconcat":[
     {
-      "title": "Which months have the most planes arriving at Australian airports?",
+      "title": "Number of planes arriving since 1985",
       "data": { "url": "https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/data/monthly_flights_in.csv"},
       "transform": [
         {"filter": "datum.Year >= 1990"},
@@ -92,19 +92,20 @@
           "aggregate": "sum",
           "scale": {
             "type": "log",
-            "scheme": "yellowgreenblue"}
+            "scheme": "magma",
+            "reverse":false}
         },
         "tooltip": [
           {"field": "Month", "type": "temporal", "format": "%B"},
           {"field": "Year", "type": "temporal", "format": "%Y"},
-          {"field": "Dom_Acm_In", "aggregate": "sum", "title": "Domestic Arrivals"},
-          {"field": "Int_Acm_In", "aggregate": "sum", "title": "International Arrivals"},
-          {"field": "Acm_In", "aggregate": "sum", "title": "Total Arrivals"}
+          {"field": "Dom_Acm_In", "aggregate": "sum", "title": "Domestic Arrivals", "format":","},
+          {"field": "Int_Acm_In", "aggregate": "sum", "title": "International Arrivals", "format":","},
+          {"field": "Acm_In", "aggregate": "sum", "title": "Total Arrivals", "format":","}
         ]
       }
     },
   {
-      "title": "Which months have the most planes leaving Australian airports?/ ",
+      "title": "Number of planes departing since 1985",
       "data": { "url": "https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/data/monthly_flights_out.csv"},
       "transform": [
         {"filter": "datum.Year >= 1990"},
@@ -141,11 +142,17 @@
         "tooltip": [
           {"field": "Month", "type": "temporal", "format": "%B"},
           {"field": "Year", "type": "temporal", "format": "%Y"},
-          {"field": "Dom_Acm_Out", "aggregate": "sum", "title": "Domestic Departures"},
-          {"field": "Int_Acm_Out", "aggregate": "sum", "title": "International Departures"},
-          {"field": "Acm_Out", "aggregate": "sum", "title": "Total Departures"}
+          {"field": "Dom_Acm_Out", "aggregate": "sum", "title": "Domestic Departures", "format":","},
+          {"field": "Int_Acm_Out", "aggregate": "sum", "title": "International Departures", "format":","},
+          {"field": "Acm_Out", "aggregate": "sum", "title": "Total Departures", "format":","}
         ]
       }
     }
-  ]
+  ],
+  "config": {
+    "legend": {
+      "symbolDirection": "horizontal",
+      "orient": "bottom"
+    }
+  }
 }
