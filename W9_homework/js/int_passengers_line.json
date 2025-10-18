@@ -1,6 +1,5 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-  "width": "container",
   "params": [
     {
       "name": "CHART1_airport_selection",
@@ -89,15 +88,27 @@
     }
   ],
   "data": {"url": "https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/data/INT_passengers.csv"},
-  "vconcat": [
+  "config": {
+    "concat": {
+      "columns": 2  }},
+
+  "concat": [
     {
-      "title": "Airport 1: Number of International Passenger Arrivals",
-      "transform": 
+      "title": "Airport 1 & 2: Number of International Passenger Arrivals",
+      "height":300,
+      "layer": [
+      {"transform": 
       [
         {"filter": "datum.AIRPORT == CHART1_airport_selection"}
       ],
       "mark": {"type": "line", "color": "lightseagreen"},
       "encoding": {
+        "tooltip": [
+          {"field": "Month", "type": "temporal", "format": "%B"},
+          {"field": "Year", "type": "temporal", "format": "%Y"},
+          {"field": "AIRPORT", "type":"nominal", "title": "Airport"},
+          {"field": "Int_Pax_In", "aggregate": "sum", "title": "International Arrivals", "format": ","}
+        ],
       "x": {
         "field": "Date2", "type": "temporal",
         "title": null,
@@ -122,19 +133,21 @@
       }
     },
     "y": {
-      "field": "Int_Pax_In", "type": "quantitative"
-    }
-  }
+      "field": "Int_Pax_In", "type": "quantitative", "title":null, "axis":{"format": "~s"}
+    }}
   },
-  {
-      "title": "Airport 2: Number of International Passenger Arrivals",
-      "transform": 
+      {"transform": 
       [
         {"filter": "datum.AIRPORT == CHART2_airport_selection"}
       ],
-      "width": "container",
-      "mark": {"type": "line", "color": "darkslateblue"},
+      "mark": {"type": "line", "color": "DarkSlateBlue"},
       "encoding": {
+        "tooltip": [
+          {"field": "Month", "type": "temporal", "format": "%B"},
+          {"field": "Year", "type": "temporal", "format": "%Y"},
+          {"field": "AIRPORT", "type":"nominal", "title": "Airport"},
+          {"field": "Int_Pax_In", "aggregate": "sum", "title": "International Arrivals", "format": ","}
+        ],
       "x": {
         "field": "Date2", "type": "temporal",
         "title": null,
@@ -159,17 +172,103 @@
       }
     },
     "y": {
-      "field": "Int_Pax_In", "type": "quantitative", "title":null
-    }
+      "field": "Int_Pax_In", "type": "quantitative", "title":null, "axis":{"format": "~s"}
+    }}
   }
+  
+  ]
   },
     {
-      "title": "Total Number of International Passenger Arrivals",
+      "title": "Airport 1 & 2: Number of International Passenger Depatures",
+      "height":300,
+      "layer": [
+      {"transform": 
+      [
+        {"filter": "datum.AIRPORT == CHART1_airport_selection"}
+      ],
+      "mark": {"type": "line", "color": "lightseagreen"},
+      "encoding": {
+        "tooltip": [
+          {"field": "Month", "type": "temporal", "format": "%B"},
+          {"field": "Year", "type": "temporal", "format": "%Y"},
+          {"field": "AIRPORT", "type":"nominal", "title": "Airport"},
+          {"field": "Int_Pax_In", "aggregate": "sum", "title": "International Depatures", "format": ","}
+        ],
+      "x": {
+        "field": "Date2", "type": "temporal",
+        "title": null,
+        "scale": {"domain": {"param": "brush"}},
+        "axis": {
+          "tickCount": 8,
+          "labelAlign": "left",
+          "labelExpr": "[timeFormat(datum.value, '%b'), timeFormat(datum.value, '%m') == '01' ? timeFormat(datum.value, '%Y') : '']",
+          "labelOffset": 4,
+          "labelPadding": -24,
+          "tickSize": 30,
+          "gridDash": {
+          "condition": {"test": {"field": "value", "timeUnit": "month", "equal": 1}, "value": []},
+          "value": [2,2]
+          },
+          "tickDash": {
+          "condition": {"test": {"field": "value", "timeUnit": "month", "equal": 1}, "value": []},
+          "value": [2,2]
+          }
+      }
+    },
+    "y": {
+      "field": "Int_Pax_Out", "type": "quantitative", "title":null, "axis":{"format": "~s"}
+    }}
+  },
+      {"transform": 
+      [
+        {"filter": "datum.AIRPORT == CHART2_airport_selection"}
+      ],
+      "mark": {"type": "line", "color": "DarkSlateBlue"},
+      "encoding": {
+        "tooltip": [
+          {"field": "Month", "type": "temporal", "format": "%B"},
+          {"field": "Year", "type": "temporal", "format": "%Y"},
+          {"field": "AIRPORT", "type":"nominal", "title": "Airport"},
+          {"field": "Int_Pax_In", "aggregate": "sum", "title": "International Depatures", "format": ","}
+        ],
+      "x": {
+        "field": "Date2", "type": "temporal",
+        "title": null,
+
+        "scale": {"domain": {"param": "brush"}},
+
+        "axis": {
+          "tickCount": 8,
+          "labelAlign": "left",
+          "labelExpr": "[timeFormat(datum.value, '%b'), timeFormat(datum.value, '%m') == '01' ? timeFormat(datum.value, '%Y') : '']",
+          "labelOffset": 4,
+          "labelPadding": -24,
+          "tickSize": 30,
+          "gridDash": {
+          "condition": {"test": {"field": "value", "timeUnit": "month", "equal": 1}, "value": []},
+          "value": [2,2]
+          },
+          "tickDash": {
+          "condition": {"test": {"field": "value", "timeUnit": "month", "equal": 1}, "value": []},
+          "value": [2,2]
+          }
+      }
+    },
+    "y": {
+      "field": "Int_Pax_Out", "type": "quantitative", "title":null, "axis":{"format": "~s"}
+    }}
+  }
+  
+  ]
+  },
+    {  
+      "title": "Average Number of International Passenger Arrivals per Airport",
       "transform": 
       [
-        {"filter": "datum.AIRPORT == 'All Australian Airports'"}
+        {"filter": "datum.AIRPORT == 'All Australian Airports'"},
+        {"calculate": "datum.Int_Pax_Total / 13", "as": "avg_Int_Pax"}
       ],
-      "height": 60,
+      "height": 100,
       "mark": {"type": "line", "color": "lightgrey"},
       "params": [
         {
@@ -208,8 +307,9 @@
       "y": {
         "field": "Int_Pax_Total",
         "type": "quantitative",
-        "axis": {"tickCount": 3, "grid": false},
+        "axis": {"tickCount": 3, "grid": false, "format": "~s"},
         "title": null
+        
       }
     }
   }
