@@ -103,7 +103,7 @@
           <h2>Now we have seen air travel popularity in terms of aircraft, how do passenger movements compare?</h1>
           <p>some yap</p>
         <div class="pure-u-1-1">
-          <div id="vis5" class="vis-container"></div>
+          <div id="vis4" class="vis-container"></div>
         </div>
 
       </div>
@@ -115,8 +115,11 @@
         <div class="pure-u-1-1">
           <h2>From looking at international departures & arrivals, it seems there is a general trend in the most popular month to fly.</h1>
           <p>Insert chart</p>
+        </div>
+          <div class="pure-u-1-1">
+          <div id="vis5" class="vis-container"></div>
+        </div>
 
-      </div>
     </div>
     <!-- end pure grid group -->
 
@@ -129,7 +132,9 @@
     vegaEmbed('#vis2', specVis2, { "actions": false });
     var specVis3 = "https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/js/monthly_flight_bubble.json";
     vegaEmbed('#vis3', specVis3, { "actions": false });
-    var specVis5 = "https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/js/int_passengers_line.json";
+    var specVis4 = "https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/js/int_passengers_line.json";
+    vegaEmbed('#vis4', specVis4, { "actions": false });
+    var specVis5 = "https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/js/monthly_pax_bar.json";
     vegaEmbed('#vis5', specVis5, { "actions": false });
   </script>
 </body>

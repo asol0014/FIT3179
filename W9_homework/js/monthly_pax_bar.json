@@ -1,0 +1,124 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/data/INT_passengers.csv"
+  },
+  "hconcat":[
+    {"transform": [
+      {"filter": "datum.AIRPORT == 'All Australian Airports'"},
+      {"filter": "datum.Year >= 1985"},
+      {"filter": "datum.Year < 1994"}
+    ],
+    "title": "1985 - 1995",
+    "mark": {
+      "type": "bar",
+      "color": "lightblue"
+    },
+    "encoding": {
+      "x": {
+        "timeUnit": "month",
+        "field": "Month",
+        "type": "temporal",
+        "bandPosition": 0,
+        "axis": {"title": "Month"}
+      },
+      "y": {
+        "aggregate": "average",
+        "field": "Int_Pax_In",
+        "axis": {"title": "Average number of passengers arriving or leaving"}
+      },
+      "tooltip": [
+        {"field": "Month", "type": "temporal", "title": "Month"},
+        {"aggregate": "average", "field": "Int_Pax_In", "title": "Average passengers", "format": ","}
+      ]
+    }
+    },
+    {"transform": [
+      {"filter": "datum.AIRPORT == 'All Australian Airports'"},
+      {"filter": "datum.Year >= 1995"},
+      {"filter": "datum.Year < 2005"}
+    ],
+    "title": "1995 - 2004",
+    "mark": {
+      "type": "bar",
+      "color": "lightblue"
+    },
+    "encoding": {
+      "x": {
+        "timeUnit": "month",
+        "field": "Month",
+        "type": "temporal",
+        "bandPosition": 0,
+        "axis": {"title": "Month"}
+      },
+      "y": {
+        "aggregate": "average",
+        "field": "Int_Pax_In",
+        "axis": {"title": "Average number of passengers arriving or leaving"}
+      },
+      "tooltip": [
+        {"field": "Month", "type": "temporal", "title": "Month"},
+        {"aggregate": "average", "field": "Int_Pax_In", "title": "Average passengers", "format": ","}
+      ]
+    }
+    },
+    {"transform": [
+      {"filter": "datum.AIRPORT == 'All Australian Airports'"},
+      {"filter": "datum.Year >= 2005"},
+      {"filter": "datum.Year < 2015"}
+    ],
+    "title": "2005 - 2014",
+    "mark": {
+      "type": "bar",
+      "color": "lightblue"
+    },
+    "encoding": {
+      "x": {
+        "timeUnit": "month",
+        "field": "Month",
+        "type": "temporal",
+        "bandPosition": 0,
+        "axis": {"title": "Month"}
+      },
+      "y": {
+        "aggregate": "average",
+        "field": "Int_Pax_In",
+        "axis": {"title": "Average number of passengers arriving or leaving"}
+      },
+      "tooltip": [
+        {"field": "Month", "type": "temporal", "title": "Month"},
+        {"aggregate": "average", "field": "Int_Pax_In", "title": "Average passengers", "format": ","}
+      ]
+    }
+    },
+    {"transform": [
+      {"filter": "datum.AIRPORT == 'All Australian Airports'"},
+      {"filter": "datum.Year >= 2015"},
+      {"filter": "datum.Year < 2024"}
+    ],
+    "title": "2015 - 2024",
+    "mark": {
+      "type": "bar",
+      "color": "lightblue"
+    },
+    "encoding": {
+      "x": {
+        "timeUnit": "month",
+        "field": "Month",
+        "type": "temporal",
+        "bandPosition": 0,
+        "axis": {"title": "Month"}
+      },
+      "y": {
+        "aggregate": "average",
+        "field": "Int_Pax_In",
+        "axis": {"title": "Average number of passengers arriving or leaving"}
+      },
+      "tooltip": [
+        {"field": "Month", "type": "temporal", "title": "Month"},
+        {"aggregate": "average", "field": "Int_Pax_In", "title": "Average passengers", "format": ","}
+      ]
+    }
+    }
+  ]
+}
