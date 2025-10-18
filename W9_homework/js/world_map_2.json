@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "height": 1000,
-  "width":1000,
+  "width": "container",
+  "height": 450,
   "title": "Incoming International Passengers",
   "config": {
     "legend": {
@@ -10,7 +10,6 @@
     }
   },
   "view": {"stroke": "white", "strokeOpacity":0},
-
   "params": [
     {
       "name": "continent_select",
@@ -22,7 +21,7 @@
         "name": "Select Continent: "
       }
     },
-    {
+  {
     "name": "YearParam",
     "value": "2024",
     "bind": {
@@ -40,30 +39,51 @@
       "name": "Month: "
     }
   }
-  ],
-  "projection": {
-    "type": "equalEarth",
-    "scale": {
-      "expr": "continent_select == 'All' ? 100 : continent_select == 'Africa' ? 250 : continent_select == 'Asia' ? 150 : continent_select == 'Europe' ? 1200 : continent_select == 'North America' ? 200 : continent_select == 'South America' ? 250 : continent_select == 'Oceania' ? 400 : 100"
-    },
-    "translate": {
-      "expr": "continent_select == 'All' ? [290,225] : continent_select == 'Africa' ? [290,160] : continent_select == 'Asia' ? [190,280] : continent_select == 'Europe' ? [290,500] : continent_select == 'North America' ? [700,350] : continent_select == 'South America' ? [700,0] : continent_select == 'Oceania' ? [-600,-150] : [290,225]"
-    },
-    "center": [0, 20]
-
-  },
+],
   "layer": [
+    
     {
       "data": {
-        "url": "https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/data/World_Countries_NEW.json",
+        "url": "https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/data/world_countries.json",
         "format": {
           "type": "json"
         }
       },
+      "transform": [{"filter": "datum.CONTINENT != 'Antarctica'"}],
+      "projection": {
+        "type": "equirectangular",
+        "rotate": [-150, 0, 0],
+        "scale": {
+        "expr": "continent_select == 'All' ? 100 : continent_select == 'Africa' ? 250 : continent_select == 'Asia' ? 150 : continent_select == 'Europe' ? 300 : continent_select == 'North America' ? 200 : continent_select == 'South America' ? 250 : continent_select == 'Oceania' ? 400 : 100"
+      },
+      "translate": {
+        "expr": "continent_select == 'All' ? [290,225] : continent_select == 'Africa' ? [290,160] : continent_select == 'Asia' ? [190,280] : continent_select == 'Europe' ? [290,500] : continent_select == 'North America' ? [700,350] : continent_select == 'South America' ? [700,0] : continent_select == 'Oceania' ? [-600,-150] : [290,225]"
+    },
+    "center": [0, 20]
+      },
       "mark": {
         "type": "geoshape",
-        "fill": null,
+        "fill": "#c7e8c7",
         "stroke": "darkgrey"
+      }
+    },
+    {
+      "data": {
+        "url":
+        "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/7_others/oceans.topojson",
+        "format": {"type": "topojson", "feature": "oceans"}
+      },
+      "mark": {"type": "geoshape", "fill": "skyblue"},
+      "projection": {
+        "type": "equirectangular",
+        "rotate": [-150, 0, 0],
+        "scale": {
+        "expr": "continent_select == 'All' ? 100 : continent_select == 'Africa' ? 250 : continent_select == 'Asia' ? 150 : continent_select == 'Europe' ? 300 : continent_select == 'North America' ? 200 : continent_select == 'South America' ? 250 : continent_select == 'Oceania' ? 400 : 100"
+      },
+      "translate": {
+        "expr": "continent_select == 'All' ? [290,225] : continent_select == 'Africa' ? [290,160] : continent_select == 'Asia' ? [190,280] : continent_select == 'Europe' ? [290,500] : continent_select == 'North America' ? [700,350] : continent_select == 'South America' ? [700,0] : continent_select == 'Oceania' ? [-600,-150] : [290,225]"
+    },
+    "center": [0, 20]
       }
     },
     {
@@ -78,6 +98,7 @@
         {"filter": "datum.Month == MonthParam"},
         
         {"filter": {"field": "Origin", "equal": "Australia"}},
+        {"filter": {"field": "CAT_TRAVELLER", "equal": "6"}},
         {"filter": "test(/other/i, datum['Country of Stay/Residence']) == false"},
         {"filter": "test(/total/i, datum['Country of Stay/Residence']) == false"},
         {"filter": "test(/not stated/i, datum['Country of Stay/Residence']) == false"},
@@ -104,47 +125,76 @@
             "fields": ["Latitude", "Longitude"]
           },
           "as": ["dest_latitude", "dest_longitude"]
-        },
-        {"filter": "datum.properties.CONTINENT != 'Antarctica'"},
-        {"filter": "continent_select == 'All' || datum.properties.CONTINENT == continent_select || (continent_select == 'Oceania' && (datum.properties.CONTINENT == 'Oceania' || datum.properties.CONTINENT == 'Australia'))"}
+        }
       ],
-      "layer":[
-        {
-          "mark": {"type": "rule"},
-          "encoding": {
-            "longitude": {"field": "origin_longitude", "type": "quantitative"},
-            "latitude": {"field": "origin_latitude", "type": "quantitative"},
-            "longitude2": {"field": "dest_longitude"},
-            "latitude2": {"field": "dest_latitude"},
-            "tooltip": [
-              {"field": "Origin", "type": "nominal", "title": "Origin Country"},
-              {"field": "Country of Stay/Residence", "type": "nominal", "title": "Destination"},
-              {"field": "OBS_VALUE", "type": "quantitative", "title": "Number of Passengers"},
-              {"field": "TIME_PERIOD", "type": "nominal", "title": "Period"}
-            ],
-
-            "color": {
-              "field": "OBS_VALUE",
-              "type": "quantitative",
-              "scale": {"scheme": "tealblues"}, 
-              "title": "Number of incoming passengers"
-            },
-            "strokeWidth": {
-              "field": "OBS_VALUE",
-              "type": "quantitative",
-              "scale": {"range": [1, 10]}, 
-              "title": "Number of incoming passengers"
-            }
-          }
+      "layer":[{
+      "projection": {
+        "type": "equirectangular",
+        "rotate": [-150, 0, 0],
+        "scale": {
+        "expr": "continent_select == 'All' ? 100 : continent_select == 'Africa' ? 250 : continent_select == 'Asia' ? 150 : continent_select == 'Europe' ? 300 : continent_select == 'North America' ? 200 : continent_select == 'South America' ? 250 : continent_select == 'Oceania' ? 400 : 100"
       },
+      "translate": {
+        "expr": "continent_select == 'All' ? [290,225] : continent_select == 'Africa' ? [290,160] : continent_select == 'Asia' ? [190,280] : continent_select == 'Europe' ? [290,500] : continent_select == 'North America' ? [700,350] : continent_select == 'South America' ? [700,0] : continent_select == 'Oceania' ? [-600,-150] : [290,225]"
+    },
+    "center": [0, 20]
+      },
+      "mark": {"type": "rule"},
+      "encoding": {
+        "longitude": {"field": "origin_longitude", "type": "quantitative"},
+        "latitude": {"field": "origin_latitude", "type": "quantitative"},
+        "longitude2": {"field": "dest_longitude"},
+        "latitude2": {"field": "dest_latitude"},
+        "tooltip": [
+          {"field": "Origin", "type": "nominal", "title": "Origin Country"},
+          {"field": "Country of Stay/Residence", "type": "nominal", "title": "Destination"},
+          {"field": "OBS_VALUE", "type": "quantitative", "title": "Number of Passengers"},
+          {"field": "TIME_PERIOD", "type": "nominal", "title": "Period"}
+        ],
+        "color": {
+          "field": "OBS_VALUE",
+          "type": "quantitative",
+          "scale": {"scheme": "magma"}, 
+          "title": "Number of incoming passengers"
+        },
+        "strokeWidth": {
+          "field": "OBS_VALUE",
+          "type": "quantitative",
+          "scale": {"range": [1, 10]}, 
+          "title": "Number of incoming passengers"
+        }
+      }
+    },
     {
       "mark": {"type": "circle", "color": "null", "size": 10},
       "encoding": {
         "longitude": {"field": "dest_longitude", "type": "quantitative"},
         "latitude": {"field": "dest_latitude", "type": "quantitative"}
+      },
+      "projection": {
+        "type": "equirectangular",
+        "rotate": [-150, 0, 0],
+        "scale": {
+        "expr": "continent_select == 'All' ? 100 : continent_select == 'Africa' ? 250 : continent_select == 'Asia' ? 150 : continent_select == 'Europe' ? 300 : continent_select == 'North America' ? 200 : continent_select == 'South America' ? 250 : continent_select == 'Oceania' ? 400 : 100"
+      },
+      "translate": {
+        "expr": "continent_select == 'All' ? [290,225] : continent_select == 'Africa' ? [290,160] : continent_select == 'Asia' ? [190,280] : continent_select == 'Europe' ? [290,500] : continent_select == 'North America' ? [700,350] : continent_select == 'South America' ? [700,0] : continent_select == 'Oceania' ? [-600,-150] : [290,225]"
+    },
+    "center": [0, 20]
       }
     },
     {
+      "projection": {
+        "type": "equirectangular",
+        "rotate": [-150, 0, 0],
+        "scale": {
+        "expr": "continent_select == 'All' ? 100 : continent_select == 'Africa' ? 250 : continent_select == 'Asia' ? 150 : continent_select == 'Europe' ? 300 : continent_select == 'North America' ? 200 : continent_select == 'South America' ? 250 : continent_select == 'Oceania' ? 400 : 100"
+      },
+      "translate": {
+        "expr": "continent_select == 'All' ? [290,225] : continent_select == 'Africa' ? [290,160] : continent_select == 'Asia' ? [190,280] : continent_select == 'Europe' ? [290,500] : continent_select == 'North America' ? [700,350] : continent_select == 'South America' ? [700,0] : continent_select == 'Oceania' ? [-600,-150] : [290,225]"
+    },
+    "center": [0, 20]
+      },
       "transform": [
         {
           "calculate": "toNumber(datum.OBS_VALUE)",
