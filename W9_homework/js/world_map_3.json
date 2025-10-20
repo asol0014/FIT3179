@@ -134,7 +134,7 @@
         "opacity":{
           "field": "OBS_VALUE",
           "type": "quantitative",
-          "scale": {"range": [0.7, 1]}
+          "scale": {"range": [0.65, 1]}
 
         },
         "strokeWidth": {
