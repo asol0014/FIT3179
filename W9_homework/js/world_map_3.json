@@ -148,7 +148,7 @@
         "tooltip": [
           {"field": "Country of Stay/Residence", "type": "nominal", "title": "Passengers incoming from"},
           {"field": "OBS_VALUE", "type": "quantitative", "title": "Number of Passengers", "format": ","},
-          {"field": "TIME_PERIOD", "type": "nominal", "title": "Period"}
+          {"field": "TIME_PERIOD", "type": "nominal", "title": "Time Period"}
         ],
         "color": {
           "value": "#ff7f00"
@@ -175,7 +175,7 @@
         "tooltip": [
           {"field": "Country of Stay/Residence", "type": "nominal", "title": "Passengers incoming from"},
           {"field": "OBS_VALUE", "type": "quantitative", "title": "Number of Passengers", "format": ","},
-          {"field": "TIME_PERIOD", "type": "nominal", "title": "Period"}
+          {"field": "TIME_PERIOD", "type": "nominal", "title": "Time Period"}
         ]
       },
       "projection": {
@@ -219,7 +219,7 @@
         "tooltip": [
           {"field": "Country of Stay/Residence", "type": "nominal", "title": "Passengers incoming from"},
           {"field": "OBS_VALUE", "type": "quantitative", "title": "Number of Passengers", "format": ","},
-          {"field": "TIME_PERIOD", "type": "nominal", "title": "Period"}
+          {"field": "TIME_PERIOD", "type": "nominal", "title": "Time Period"}
         ]
       }
     }

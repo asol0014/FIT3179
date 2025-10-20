@@ -29,7 +29,7 @@
           "scale": {"domain": [0, 1600000]},
           "field": "avg_passengers",
           "type": "quantitative",
-          "axis": {"title": null, "format": ",.0f"}
+          "axis": {"title": null, "format": ".0s"}
         },
         "tooltip": [
           {"field": "Month", "type": "temporal", "title": "Month", "format": "%B"},
@@ -94,7 +94,7 @@
           "scale": {"domain": [0, 1600000]},
           "field": "avg_passengers",
           "type": "quantitative",
-          "axis": {"title": null, "format": ",.0f"}
+          "axis": {"title": null, "format": ".0s"}
         },
         "tooltip": [
           {"field": "Month", "type": "temporal", "title": "Month", "format": "%B"},
@@ -159,7 +159,7 @@
           "scale": {"domain": [0, 1600000]},
           "field": "avg_passengers",
           "type": "quantitative",
-          "axis": {"title": null, "format": ",.0f"}
+          "axis": {"title": null, "format": ".0s"}
         },
         "tooltip": [
           {"field": "Month", "type": "temporal", "title": "Month", "format": "%B"},
@@ -224,7 +224,7 @@
           "scale": {"domain": [0, 1600000]},
           "field": "avg_passengers",
           "type": "quantitative",
-          "axis": {"title": null, "format": ",.0f"}
+          "axis": {"title": null, "format": ".0s"}
         },
         "tooltip": [
           {"field": "Month", "type": "temporal", "title": "Month", "format": "%B"},

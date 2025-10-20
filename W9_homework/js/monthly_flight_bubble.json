@@ -90,8 +90,7 @@
           "field": "Month",
           "type": "ordinal",
           "timeUnit": "month",
-        "axis": {"title": "Month"}
-
+          "axis": {"title": "Month"}
         },
         "x": {
           "field": "Year",
@@ -104,8 +103,7 @@
           "field": "Acm_binned",
           "type": "ordinal",
           "scale": {
-            "scheme": "goldorange",
-            "reverse":false},
+            "scheme": "goldorange"},
           "legend": {
             "title": "Number of Planes",
             "format": ","

@@ -29,7 +29,7 @@
     "y": {
       "field": "OBS_VALUE",
       "type": "quantitative",
-      "axis": {"title": "Percentage of travellers"},
+      "axis": {"title": "Proportion of travellers"},
       "stack": "normalize"
 
     },
