@@ -200,7 +200,7 @@
         "latitude": {"field": "dest_latitude", "type": "quantitative"},
         "text": {"field": "rank_label", "type": "nominal"},
         "tooltip": [
-          {"field": "rank_label", "type": "nominal", "title": "Passengers incoming from"},
+          {"field": "Country of Stay/Residence", "type": "nominal", "title": "Passengers incoming from"},
           {"field": "OBS_VALUE", "type": "quantitative", "title": "Number of Passengers", "format": ","},
           {"field": "Year", "type": "nominal", "title": "Year"}
           
