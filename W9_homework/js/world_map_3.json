@@ -187,15 +187,20 @@
         },
         {
           "filter": "datum.rank <= 10"
+        },
+
+         {
+          "calculate": "toString(datum.rank) + '. ' + datum['Country of Stay/Residence']",
+          "as": "rank_label"
         }
       ],
       "mark": {"type": "text", "dy": -10, "dx": 0, "fontWeight": "lighter"},
       "encoding": {
         "longitude": {"field": "dest_longitude", "type": "quantitative"},
         "latitude": {"field": "dest_latitude", "type": "quantitative"},
-        "text": {"field": "Country of Stay/Residence", "type": "nominal"},
+        "text": {"field": "rank_label", "type": "nominal"},
         "tooltip": [
-          {"field": "Country of Stay/Residence", "type": "nominal", "title": "Passengers incoming from"},
+          {"field": "rank_label", "type": "nominal", "title": "Passengers incoming from"},
           {"field": "OBS_VALUE", "type": "quantitative", "title": "Number of Passengers", "format": ","},
           {"field": "Year", "type": "nominal", "title": "Year"}
           
