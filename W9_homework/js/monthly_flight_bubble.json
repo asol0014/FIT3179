@@ -2,6 +2,16 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "params": [
     {
+      "name": "highlight_in",
+      "select": {"type": "point", "fields": ["Acm_binned"], "on": "mouseover"},
+      "bind": "legend"
+    },
+    {
+      "name": "highlight_out",
+      "select": {"type": "point", "fields": ["Acm_binned"], "on": "mouseover"},
+      "bind": "legend"
+    },
+    {
       "name": "airport_selection",
       "value": "All Australian Airports",
       "bind": {
@@ -67,10 +77,14 @@
         {"filter": "datum.Year >= 1990"},
         {"filter": "datum.AIRPORT == airport_selection"},
         {"filter": "datum.Acm_In > 0"},
-        {"bin": {"maxbins": 10}, "field": "Acm_In", "as": "Acm_In_binned"}
+        {"bin": {"maxbins": 10}, "field": "Acm_In", "as": "Acm_binned"}
       ],
       "mark": "rect",
       "encoding": {
+        "opacity": {
+          "condition": {"param": "highlight_in", "value": 1},
+          "value": 0.8
+        },
         
         "y": {
           "field": "Month",
@@ -87,11 +101,15 @@
 
         },
         "color": {
-          "field": "Acm_In_binned",
+          "field": "Acm_binned",
           "type": "ordinal",
           "scale": {
             "scheme": "goldorange",
-            "reverse":false}
+            "reverse":false},
+          "legend": {
+            "title": "Number of Planes",
+            "format": ","
+          }
         },
         "tooltip": [
           {"field": "Month", "type": "temporal", "format": "%B"},
@@ -109,10 +127,14 @@
         {"filter": "datum.Year >= 1990"},
         {"filter": "datum.AIRPORT == airport_selection"},
         {"filter": "datum.Acm_Out > 0"},
-        {"bin": {"maxbins": 6}, "field": "Acm_Out", "as": "Acm_Out_binned"}
+        {"bin": {"maxbins": 10}, "field": "Acm_Out", "as": "Acm_binned"}
       ],
       "mark": "rect",
       "encoding": {
+        "opacity": {
+          "condition": {"param": "highlight_out", "value": 1},
+          "value": 0.8
+        },
         "y": {
           "field": "Month",
           "type": "ordinal",
@@ -126,7 +148,7 @@
           "axis": {"title": "Year"}
         },
         "color": {
-          "field": "Acm_Out_binned",
+          "field": "Acm_binned",
           "type": "ordinal",
           "scale": {
             "scheme": "goldorange"
@@ -148,12 +170,15 @@
     }
   ],
   "config": {
+    "title": {
+    "fontSize": 16
+  },
     "legend": {
       "symbolDirection": "horizontal",
       "orient": "bottom",
       "symbolSize": 500,
-      "titleFontSize": 16,
-      "labelFontSize": 14
+      "titleFontSize": 14,
+      "labelFontSize": 12
     }
   }
 }
