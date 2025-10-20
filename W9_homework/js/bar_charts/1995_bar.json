@@ -3,6 +3,7 @@
   "data": {
     "url": "https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/data/INT_passengers.csv"
   },
+  "width":"container",
 "transform": [
     {"filter": "datum.AIRPORT == 'All Australian Airports'"},
     {"filter": "datum.Year >= 1995"},
