@@ -3,7 +3,7 @@
   "data": {
     "url": "https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/data/INT_passengers.csv"
   },
-"hconcat":[
+"concat":[
   {"transform": [
     {"filter": "datum.AIRPORT == 'All Australian Airports'"},
     {"filter": "datum.Year >= 1985"},
@@ -17,18 +17,19 @@
   ],
   "layer": [
     { "title": "1985 - 1994",
-      "mark": {"type": "bar", "color": "lightgray"},
+      "mark": {"type": "bar", "color": "lightgray", "cornerRadius": 6},
       "encoding": {
         "x": {
           "timeUnit": "month",
           "field": "Month",
           "type": "temporal",
-          "axis": {"title": "Month"}
+          "axis": {"title": "Month", "grid": false}
         },
         "y": {
+          "scale": {"domain": [0, 1600000]},
           "field": "avg_passengers",
           "type": "quantitative",
-          "axis": {"title": "Average number of passengers arriving or leaving", "format": ",.0f"}
+          "axis": {"title": null, "format": ",.0f"}
         },
         "tooltip": [
           {"field": "Month", "type": "temporal", "title": "Month", "format": "%B"},
@@ -38,7 +39,7 @@
     },
     {
       "transform": [{"filter": "datum.rank <= 4"}],
-      "mark": {"type": "bar", "color": "navy"},
+      "mark": {"type": "bar", "color": "#ff7f00", "cornerRadius": 6},
       "encoding": {
         "x": {"timeUnit": "month", "field": "Month", "type": "temporal"},
         "y": {"field": "avg_passengers", "type": "quantitative"},
@@ -81,18 +82,19 @@
   ],
   "layer": [
     { "title": "1995 - 2004",
-      "mark": {"type": "bar", "color": "lightgray"},
+      "mark": {"type": "bar", "color": "lightgray", "cornerRadius": 6},
       "encoding": {
         "x": {
           "timeUnit": "month",
           "field": "Month",
           "type": "temporal",
-          "axis": {"title": "Month"}
+          "axis": {"title": "Month", "grid": false}
         },
         "y": {
+          "scale": {"domain": [0, 1600000]},
           "field": "avg_passengers",
           "type": "quantitative",
-          "axis": {"title": "Average number of passengers arriving or leaving", "format": ",.0f"}
+          "axis": {"title": null, "format": ",.0f"}
         },
         "tooltip": [
           {"field": "Month", "type": "temporal", "title": "Month", "format": "%B"},
@@ -102,7 +104,7 @@
     },
     {
       "transform": [{"filter": "datum.rank <= 4"}],
-      "mark": {"type": "bar", "color": "navy"},
+      "mark": {"type": "bar", "color": "#ff7f00", "cornerRadius": 6},
       "encoding": {
         "x": {"timeUnit": "month", "field": "Month", "type": "temporal"},
         "y": {"field": "avg_passengers", "type": "quantitative"},
@@ -145,18 +147,19 @@
   ],
   "layer": [
     { "title": "2005 - 2014",
-      "mark": {"type": "bar", "color": "lightgray"},
+      "mark": {"type": "bar", "color": "lightgray", "cornerRadius": 6},
       "encoding": {
         "x": {
           "timeUnit": "month",
           "field": "Month",
           "type": "temporal",
-          "axis": {"title": "Month"}
+          "axis": {"title": "Month", "grid": false}
         },
         "y": {
+          "scale": {"domain": [0, 1600000]},
           "field": "avg_passengers",
           "type": "quantitative",
-          "axis": {"title": "Average number of passengers arriving or leaving", "format": ",.0f"}
+          "axis": {"title": null, "format": ",.0f"}
         },
         "tooltip": [
           {"field": "Month", "type": "temporal", "title": "Month", "format": "%B"},
@@ -166,7 +169,7 @@
     },
     {
       "transform": [{"filter": "datum.rank <= 4"}],
-      "mark": {"type": "bar", "color": "navy"},
+      "mark": {"type": "bar", "color": "#ff7f00", "cornerRadius": 6},
       "encoding": {
         "x": {"timeUnit": "month", "field": "Month", "type": "temporal"},
         "y": {"field": "avg_passengers", "type": "quantitative"},
@@ -209,18 +212,19 @@
   ],
   "layer": [
     { "title": "2015 - 2024",
-      "mark": {"type": "bar", "color": "lightgray"},
+      "mark": {"type": "bar", "color": "lightgray", "cornerRadius": 6},
       "encoding": {
         "x": {
           "timeUnit": "month",
           "field": "Month",
           "type": "temporal",
-          "axis": {"title": "Month"}
+          "axis": {"title": "Month", "grid": false}
         },
         "y": {
+          "scale": {"domain": [0, 1600000]},
           "field": "avg_passengers",
           "type": "quantitative",
-          "axis": {"title": "Average number of passengers arriving or leaving", "format": ",.0f"}
+          "axis": {"title": null, "format": ",.0f"}
         },
         "tooltip": [
           {"field": "Month", "type": "temporal", "title": "Month", "format": "%B"},
@@ -230,7 +234,7 @@
     },
     {
       "transform": [{"filter": "datum.rank <= 4"}],
-      "mark": {"type": "bar", "color": "navy"},
+      "mark": {"type": "bar", "color": "#ff7f00", "cornerRadius": 6},
       "encoding": {
         "x": {"timeUnit": "month", "field": "Month", "type": "temporal"},
         "y": {"field": "avg_passengers", "type": "quantitative"},
@@ -261,5 +265,9 @@
   ]
 }
 
-]
+],
+"config": {
+  "concat": { "columns": 2 }
 }
+}
+
