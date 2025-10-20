@@ -58,3 +58,22 @@ h1 {
 .small-font {
   font-size: 14px;
 }
+
+/* Custom CSS in your external stylesheet or <style> block */
+.my-colored-div {
+  background-color: #f0f0f0; /* A light grey color */
+  padding: 1em; /* Add some padding so the color is visible */
+}
+
+.another-color {
+  background-color: #add8e6; /* Light blue */
+  color: #333; /* Set a contrasting text color */
+  padding: 1.5em;
+}
+/* Custom CSS in your external stylesheet */
+.highlight-paragraph {
+  background-color: #ffffcc; /* A soft yellow for highlighting */
+  padding: 0.5em 1em; /* Vertical and horizontal padding */
+  border: 1px solid #e6e6b8; /* A light border for definition */
+  margin-bottom: 1em; /* Space below the paragraph */
+}
