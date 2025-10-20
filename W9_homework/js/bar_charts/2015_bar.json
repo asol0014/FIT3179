@@ -1,0 +1,71 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/data/INT_passengers.csv"
+  },
+  
+  "transform": [
+    {"filter": "datum.AIRPORT == 'All Australian Airports'"},
+    {"filter": "datum.Year >= 2015"},
+    {"filter": "datum.Year < 2024"},
+    {
+      "aggregate": [{"op": "average", "field": "Int_Pax_In", "as": "avg_passengers"}],
+      "groupby": ["Month"]
+    },
+    {"window": [{"op": "rank", "as": "rank"}], "sort": [{"field": "avg_passengers", "order": "descending"}]},
+    {"calculate": "month(datum.Month)", "as": "month_number"}
+  ],
+  "layer": [
+    { "title": "2015 - 2024",
+      "mark": {"type": "bar", "color": "lightgray", "cornerRadius": 6},
+      "encoding": {
+        "x": {
+          "timeUnit": "month",
+          "field": "Month",
+          "type": "temporal",
+          "axis": {"title": "Month", "grid": false}
+        },
+        "y": {
+          "scale": {"domain": [0, 1600000]},
+          "field": "avg_passengers",
+          "type": "quantitative",
+          "axis": {"title": null, "format": ".0s"}
+        },
+        "tooltip": [
+          {"field": "Month", "type": "temporal", "title": "Month", "format": "%B"},
+          {"field": "avg_passengers", "type": "quantitative", "title": "Average passengers", "format": ",.0f"}
+        ]
+      }
+    },
+    {
+      "transform": [{"filter": "datum.rank <= 4"}],
+      "mark": {"type": "bar", "color": "#ff7f00", "cornerRadius": 6},
+      "encoding": {
+        "x": {"timeUnit": "month", "field": "Month", "type": "temporal"},
+        "y": {"field": "avg_passengers", "type": "quantitative"},
+      "tooltip": [
+          {"field": "Month", "type": "temporal", "title": "Month", "format": "%B"},
+          {"field": "avg_passengers", "type": "quantitative", "title": "Average passengers", "format": ",.0f"}
+        ]
+      }
+    },
+    {
+      "transform": [{"filter": "datum.rank <= 4"}],
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "bottom",
+        "dy": -5,
+        "color": "white",
+        "fontWeight": "bold",
+        "xOffset": 13,
+        "yOffset": 20
+      },
+      "encoding": {
+        "x": {"timeUnit": "month", "field": "Month", "type": "temporal"},
+        "y": {"field": "avg_passengers", "type": "quantitative"},
+        "text": {"field": "Month", "type": "temporal", "format": "%b"}
+      }
+    }
+  ]
+}
