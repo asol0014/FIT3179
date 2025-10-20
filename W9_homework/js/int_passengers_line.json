@@ -108,9 +108,7 @@
       "x": {
         "field": "Date2", "type": "temporal",
         "title": null,
-
         "scale": {"domain": {"param": "brush"}},
-
         "axis": {
           "labelAlign": "left",
           "labelExpr": "[timeFormat(datum.value, '%b'), timeFormat(datum.value, '%m') == '01' ? timeFormat(datum.value, '%Y') : '']",
@@ -175,6 +173,8 @@
   },
     {
       "title": "Number of International Passenger Depatures",
+      "width":"container",
+
       "layer": [
       {"transform": 
       [
@@ -257,57 +257,134 @@
   },
     {  
       "title": "Average Number of International Passenger Arrivals",
-      "transform": 
-      [
-        {"filter": "datum.AIRPORT == 'All Australian Airports'"},
-        {"calculate": "datum.Int_Pax_Total / 14", "as": "avg_Int_Pax"}
-      ],
+      "width":"container",
       "height": 80,
-
-      
-
-      "mark": {"type": "line", "color": "lightgrey"},
-      "params": [
+      "layer": [
         {
-          "name": "brush",
-          "select": {
-            "type": "interval", 
-            "encodings": ["x"]
-          }
-        }
-      ],
-      "encoding": {
-      "x": {
-        "field": "Date2",
-        "title": null,
+          "params": [
+            {
+              "name": "brush",
+              "select": {
+                "type": "interval", 
+                "encodings": ["x"]
+              }
+            }
+          ],
+          "transform": [ 
+            {"filter": "datum.AIRPORT == 'All Australian Airports'"},
+            {"calculate": "datum.Int_Pax_Total / 14", "as": "avg_Int_Pax"}
+          ],
+          "mark": {"type": "line", "color": "lightgrey"},
+          "encoding": {
+            "x": {
+                
+              "field": "Date2",
+              "title": null,
 
-        "type": "temporal",
-        "timeUnit": "yearmonth",
-        "axis": {
-          "format": "%b %Y",
-          "labelAlign": "left",
-          "labelExpr": "[timeFormat(datum.value, '%b'), timeFormat(datum.value, '%m') == '01' ? timeFormat(datum.value, '%Y') : '']",
-          "labelOffset": 4,
-          "labelPadding": -24,
-          "tickSize": 30,
-          "gridDash": {
-          "condition": {"test": {"field": "value", "timeUnit": "month", "equal": 1}, "value": []},
-          "value": [2,2]
-          },
-          "tickDash": {
-          "condition": {"test": {"field": "value", "timeUnit": "month", "equal": 1}, "value": []},
-          "value": [2,2]
+              "type": "temporal",
+              "timeUnit": "yearmonth",
+              "axis": {
+                "format": "%b %Y",
+                "labelAlign": "left",
+                "labelExpr": "[timeFormat(datum.value, '%b'), timeFormat(datum.value, '%m') == '01' ? timeFormat(datum.value, '%Y') : '']",
+                "labelOffset": 4,
+                "labelPadding": -24,
+                "tickSize": 30,
+                "tickCount":8,
+                "gridDash": {
+                "condition": {"test": {"field": "value", "timeUnit": "month", "equal": 1}, "value": []},
+                "value": [2,2]
+                },
+                "tickDash": {
+                "condition": {"test": {"field": "value", "timeUnit": "month", "equal": 1}, "value": []},
+                "value": [2,2]
+                }
+              }
+            },
+          "y": {
+            "field": "Int_Pax_Total",
+            "type": "quantitative",
+            "axis": {"tickCount": 3, "grid": false, "format": ".0s"},
+            "title": null
           }
+        }  
+      },
+      {
+      "data": {"values": [{}]},
+      "mark": {"type": "rule", "strokeDash": [2, 2], "size": 2},
+      "encoding": {
+        "x": {"datum": {"year": 2001, "month": "September"}
+      }
       }
       },
-      "y": {
-        "field": "Int_Pax_Total",
-        "type": "quantitative",
-        "axis": {"tickCount": 3, "grid": false, "format": ".0s"},
-        "title": null
-        
+      {
+        "data": {"values": [{}]},
+        "mark": {
+          "type": "text",
+          "align": "left",
+          "baseline": "top",
+          "dx": 3,
+          "dy": 5,
+          "color": "black",
+          "fontSize": 12
+        },
+        "encoding": {
+          "x": {"datum": {"year": 2001, "month": "September"}},
+          "y": {"value": 0},
+          "text": {"value": "9/11"}
+        }
+      },
+      {
+      "data": {"values": [{}]},
+      "mark": {"type": "rule", "strokeDash": [2, 2], "size": 2},
+      "encoding": {
+        "x": {"datum": {"year": 1989, "month": "August"}
       }
-    }
+      }
+      },
+      {
+        "data": {"values": [{}]},
+        "mark": {
+          "type": "text",
+          "align": "left",
+          "baseline": "top",
+          "dx": 3,
+          "dy": 5,
+          "color": "black",
+          "fontSize": 12
+        },
+        "encoding": {
+          "x": {"datum": {"year": 1989, "month": "August"}},
+          "y": {"value": 0},
+          "text": {"value": "Pilot Strikes"}
+        }
+      },
+      {
+      "data": {"values": [{}]},
+      "mark": {"type": "rule", "strokeDash": [2, 2], "size": 2},
+      "encoding": {
+        "x": {"datum": {"year": 2020, "month": "March"}
+      }
+      }
+      },
+      {
+        "data": {"values": [{}]},
+        "mark": {
+          "type": "text",
+          "align": "left",
+          "baseline": "top",
+          "dx": 3,
+          "dy": 5,
+          "color": "black",
+          "fontSize": 12
+        },
+        "encoding": {
+          "x": {"datum": {"year": 2020, "month": "March"}},
+          "y": {"value": 0},
+          "text": {"value": "COVID-19"}
+        }
+      }
+    ]
   }
 ]
 }
