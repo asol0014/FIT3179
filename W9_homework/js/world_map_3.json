@@ -27,13 +27,13 @@
     {
       "name": "LeftRight",
       "value": "410",
-      "bind": {"input": "range", "min": 0, "max": 1000, "step": 1,
+      "bind": {"input": "range", "min": 0, "max": 1500, "step": 1,
       "name": "Move left and right: "}
     },
     {
       "name": "UpDown",
       "value": "220",
-      "bind": {"input": "range", "min": -150, "max": 300, "step": 1,
+      "bind": {"input": "range", "min": -150, "max": 1000, "step": 1,
       "name": "Move up and down: "}
     }
   
