@@ -77,7 +77,7 @@
         "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/7_others/oceans.topojson",
         "format": {"type": "topojson", "feature": "oceans"}
       },
-      "mark": {"type": "geoshape", "fill": "skyblue"},
+      "mark": {"type": "geoshape", "fill": "#a6cee3"},
       "projection": {
         "type": "equirectangular",
         "rotate": [-150, 0, 0],
@@ -151,7 +151,7 @@
           {"field": "TIME_PERIOD", "type": "nominal", "title": "Period"}
         ],
         "color": {
-          "value": "darkorange"
+          "value": "#ff7f00"
         },
         "opacity":{
           "field": "OBS_VALUE",
@@ -168,7 +168,7 @@
       }
     },
     {
-      "mark": {"type": "point", "color": "darkorange", "size": 14},
+      "mark": {"type": "point", "color": "#ff7f00", "size": 14},
       "encoding": {
         "longitude": {"field": "dest_longitude", "type": "quantitative"},
         "latitude": {"field": "dest_latitude", "type": "quantitative"},
