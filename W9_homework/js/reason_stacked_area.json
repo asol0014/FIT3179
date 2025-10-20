@@ -17,14 +17,14 @@
   ],
   "mark": {
     "type": "area",
-    "line":true,
+    "line":true
   },
   "encoding": {
     "x": {
       "field": "year",
       "type": "ordinal",
       "timeUnit":"year",
-      "axis": {"title": "Year", "tickCount": 8}
+      "axis": {"title": "Year", "tickCount": 6}
     },
     "y": {
       "field": "OBS_VALUE",
@@ -46,7 +46,7 @@
           "title": "Reason for travel",
           "symbolSize": 100,
           "titleFontSize": 16,
-          "labelFontSize": 14
+          "labelFontSize": 11
       }
     },
     "opacity": {
