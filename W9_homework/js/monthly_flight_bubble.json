@@ -61,7 +61,7 @@
 
   "vconcat":[
     {
-      "title": "Number of planes arriving",
+      "title": "Number of Planes Arriving",
       "data": { "url": "https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/data/monthly_flights_in.csv"},
       "transform": [
         {"filter": "datum.Year >= 1990"},
@@ -71,6 +71,7 @@
       ],
       "mark": "rect",
       "encoding": {
+        
         "y": {
           "field": "Month",
           "type": "ordinal",
@@ -101,8 +102,8 @@
         ]
       }
     },
-  {
-      "title": "Number of planes departing",
+    {
+      "title": "Number of Planes Departing",
       "data": { "url": "https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/data/monthly_flights_out.csv"},
       "transform": [
         {"filter": "datum.Year >= 1990"},
@@ -129,8 +130,13 @@
           "type": "ordinal",
           "scale": {
             "scheme": "goldorange"
-            }
+            },
+          "legend": {
+            "title": "Number of Planes",
+            "format": ","
+          }
         },
+        
         "tooltip": [
           {"field": "Month", "type": "temporal", "format": "%B"},
           {"field": "Year", "type": "temporal", "format": "%Y"},
@@ -144,7 +150,10 @@
   "config": {
     "legend": {
       "symbolDirection": "horizontal",
-      "orient": "bottom"
+      "orient": "bottom",
+      "symbolSize": 500,
+      "titleFontSize": 16,
+      "labelFontSize": 14
     }
   }
 }
