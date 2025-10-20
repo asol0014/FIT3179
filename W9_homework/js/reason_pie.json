@@ -5,7 +5,8 @@
   },
   "transform": [
     {"filter": {"field": "year","oneOf": [1990, 1995, 2000, 2005, 2010, 2015, 2020, 2025]}},
-    {"filter": "datum.Reasonforjourney != 'Total'"}
+    {"filter": "datum.Reasonforjourney != 'Total'"},
+    {"calculate": "datum.percentage + '%'", "as": "percentage_label"}
   ],
   "facet": {
     "field": "year",
@@ -39,7 +40,8 @@
       
       "tooltip": [
         {"field": "Reasonforjourney", "type": "nominal", "title": "Reason for travel"},
-        {"field": "OBS_VALUE", "type": "quantitative", "title": "Number of Passengers", "format": ","}
+        {"field": "OBS_VALUE", "type": "quantitative", "title": "Number of Passengers", "format": ","},
+        {"field": "percentage_label", "type": "nominal", "title": "Percentage of Passengers"}
       ]
     }
   },
