@@ -108,7 +108,7 @@
         "text": {"field": "airport", "type": "nominal"},
         "tooltip": [
           {"field": "airport", "type": "nominal", "title": "Airport"},
-          {"field": "Dom_Acm_Total_Sum", "type": "quantitative", "title": "Domestic flight arrivals & depatures", "format": ","},
+          {"field": "Dom_Acm_Total_Sum", "type": "quantitative", "title": "Domestic flight arrivals & depatures", "format": ","}
         ]
       }
     },
@@ -151,7 +151,7 @@
         "text": {"field": "airport", "type": "nominal"},
         "tooltip": [
           {"field": "airport", "type": "nominal", "title": "Airport"},
-          {"field": "Dom_Acm_Total_Sum", "type": "quantitative", "title": "Domestic flight arrivals & depatures", "format": ","},
+          {"field": "Dom_Acm_Total_Sum", "type": "quantitative", "title": "Domestic flight arrivals & depatures", "format": ","}
         ]
       }
     }

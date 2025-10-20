@@ -110,7 +110,7 @@
         "text": {"field": "airport", "type": "nominal"},
         "tooltip": [
           {"field": "airport", "type": "nominal", "title": "Airport"},
-          {"field": "Int_Acm_Total_Sum", "type": "quantitative", "title": "International flight arrivals & depatures", "format": ","},
+          {"field": "Int_Acm_Total_Sum", "type": "quantitative", "title": "International flight arrivals & depatures", "format": ","}
         ]
       }
     },
@@ -154,7 +154,7 @@
         "text": {"field": "airport", "type": "nominal"},
         "tooltip": [
           {"field": "airport", "type": "nominal", "title": "Airport"},
-          {"field": "Int_Acm_Total_Sum", "type": "quantitative", "title": "International flight arrivals & depatures", "format": ","},
+          {"field": "Int_Acm_Total_Sum", "type": "quantitative", "title": "International flight arrivals & depatures", "format": ","}
         ]
       }
     }

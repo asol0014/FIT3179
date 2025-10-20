@@ -63,18 +63,25 @@
       </div>
     </div>
     <!-- end pure grid group -->
-    
-    <!-- AUS MAP BUBBLE HEADING pure grid group -->
-    <div class="pure-g">
-        
-    </div>
-    <!-- end pure grid group -->
      
     <!-- AUS MAP BUBBLE pure grid group -->
     <div class="pure-g">
       <div class="pure-u-1-1">
           <h2>Which are Australia's busiest airports?</h1>
+            <p>Pictured below are commercial airports in Australia, and the number of domestic or international flights that have landed or taken off there since 1985. 
+              Sydney Airport is Australia's busiest airport, with Melbourne and Brisbane following. This is unsurprising, as Sydney opened its international airport in the late 1940s, whilst Melbourne opened its doors to international travellers in 1970 when its international airport was unveiled.</p>
+            <p>These maps also illustrate how Australia's airports are concentrated along the East Coast, which aligns with how approximately 80% of Australians live on the East Coast of the country. Note that not all airports have domestic and international terminals.</p>
       </div>
+      <div class="pure-u-1-2">
+        <div id="vis1" class="vis-container"></div>
+      </div>
+      <div class="pure-u-1-2">
+        <div id="vis6" class="vis-container"></div>
+      </div>
+      <div class="pure-u-1-1">
+
+      </div>
+
       <div class="pure-u-5-24">
         <p style="text-align: right;">Pictured is map showing the 20 busiest airports in Australia. 
           Noteably, most of Australia's airports are on the east coast, and international airports are genrally busier in terms of passengers flying in and out of them each year. </p>
@@ -82,7 +89,6 @@
       </div>
       <div class="pure-u-1-24"></div>
       <div class="pure-u-18-24">
-        <div id="vis1" class="vis-container"></div>
       </div>
     </div>
     <!-- end pure grid group -->
@@ -139,6 +145,8 @@
     vegaEmbed('#vis4', specVis4, { "actions": false });
     var specVis5 = "https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/js/monthly_pax_bar.json";
     vegaEmbed('#vis5', specVis5, { "actions": false });
+    var specVis6 = "https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/js/international_flights_map.json";
+    vegaEmbed('#vis6', specVis6, { "actions": false });
   </script>
 </body>
 
