@@ -92,7 +92,6 @@
     {
       
       "title": "Number of International Passenger Arrivals",
-      "width":"container",
       "layer": [
       {"transform": 
       [
@@ -176,7 +175,6 @@
   },
     {
       "title": "Number of International Passenger Depatures",
-      "width":"container",
       "layer": [
       {"transform": 
       [
@@ -259,7 +257,6 @@
   },
     {  
       "title": "Average Number of International Passenger Arrivals",
-      "width":"container",
       "transform": 
       [
         {"filter": "datum.AIRPORT == 'All Australian Airports'"},
