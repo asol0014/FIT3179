@@ -87,7 +87,8 @@
     }
   ],
   "data": {"url": "https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/data/INT_passengers.csv"},
-  "vconcat": [
+  "columns": 1,
+  "concat": [
     {
       
       "title": "Number of International Passenger Arrivals",
@@ -150,6 +151,7 @@
         "scale": {"domain": {"param": "brush"}},
 
         "axis": {
+          "tickCount":8,
           "labelAlign": "left",
           "labelExpr": "[timeFormat(datum.value, '%b'), timeFormat(datum.value, '%m') == '01' ? timeFormat(datum.value, '%Y') : '']",
           "labelOffset": 4,
@@ -193,6 +195,7 @@
         "title": null,
         "scale": {"domain": {"param": "brush"}},
         "axis": {
+          "tickCount":8,
           "labelAlign": "left",
           "labelExpr": "[timeFormat(datum.value, '%b'), timeFormat(datum.value, '%m') == '01' ? timeFormat(datum.value, '%Y') : '']",
           "labelOffset": 4,
@@ -231,6 +234,7 @@
         "scale": {"domain": {"param": "brush"}},
 
         "axis": {
+          "tickCount":8,
           "labelAlign": "left",
           "labelExpr": "[timeFormat(datum.value, '%b'), timeFormat(datum.value, '%m') == '01' ? timeFormat(datum.value, '%Y') : '']",
           "labelOffset": 4,
@@ -254,12 +258,12 @@
   ]
   },
     {  
-      "title": "Average Number of International Passenger Arrivals per Airport",
+      "title": "Average Number of International Passenger Arrivals",
       "width":"container",
       "transform": 
       [
         {"filter": "datum.AIRPORT == 'All Australian Airports'"},
-        {"calculate": "datum.Int_Pax_Total / 13", "as": "avg_Int_Pax"}
+        {"calculate": "datum.Int_Pax_Total / 14", "as": "avg_Int_Pax"}
       ],
       "height": 80,
 
