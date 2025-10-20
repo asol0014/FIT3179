@@ -64,9 +64,7 @@
         "expr": "Zoom"
       },
       "translate": {"expr": "[LeftRight,UpDown]"
-    },
-    "center": [0, 20]
-      },
+    }      },
       "mark": {
         "type": "geoshape",
         "fill": "lightgrey",
@@ -87,8 +85,7 @@
         "expr": "Zoom"
       },
       "translate": {"expr": "[LeftRight,UpDown]"
-    },
-    "center": [0, 20]
+    }
       }
     },
     {
@@ -140,8 +137,7 @@
         "expr": "Zoom"
       },
       "translate": {"expr": "[LeftRight,UpDown]"
-    },
-    "center": [0, 20]
+    }
       },
       "mark": {"type": "rule"},
       "encoding": {
@@ -189,8 +185,7 @@
         "expr": "Zoom"
       },
       "translate": {"expr": "[LeftRight,UpDown]"
-    },
-    "center": [0, 20]
+    }
       }
     },
     {
@@ -201,8 +196,7 @@
         "expr": "Zoom"
       },
       "translate": {"expr": "[LeftRight,UpDown]"
-    },
-    "center": [0, 20]
+    }
       },
       "transform": [
         {
