@@ -3,7 +3,7 @@
   "params": [
     {
       "name": "CHART1_airport_selection",
-      "value": "MELBOURNE",
+      "value": "Melbourne",
       "bind": {
         "input": "select",
         "options": [
@@ -45,7 +45,7 @@
     },
     {
       "name": "CHART2_airport_selection",
-      "value": "BRISBANE",
+      "value": "Brisbane",
       "bind": {
         "input": "select",
         "options": [
