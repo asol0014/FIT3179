@@ -1,0 +1,409 @@
+year,Reason for journey,OBS_VALUE
+1975,Business,34240
+1975,Convention/conference,4140
+1975,Education,2810
+1975,Employment,4040
+1975,Holiday,96360
+1975,Other & not stated,57520
+1975,Total,561920
+1975,Visiting friends/relatives,81890
+1976,Business,75220
+1976,Convention/conference,7110
+1976,Education,10350
+1976,Employment,12720
+1976,Holiday,187330
+1976,Other & not stated,101730
+1976,Total,1063620
+1976,Visiting friends/relatives,137350
+1977,Business,81510
+1977,Convention/conference,8450
+1977,Education,10280
+1977,Employment,15740
+1977,Holiday,199560
+1977,Other & not stated,93890
+1977,Total,1126600
+1977,Visiting friends/relatives,153830
+1978,Business,92930
+1978,Convention/conference,10080
+1978,Education,10560
+1978,Employment,15490
+1978,Holiday,228880
+1978,Other & not stated,99060
+1978,Total,1261160
+1978,Visiting friends/relatives,173580
+1979,Business,103840
+1979,Convention/conference,13150
+1979,Education,11930
+1979,Employment,15910
+1979,Holiday,306810
+1979,Other & not stated,114670
+1979,Total,1586700
+1979,Visiting friends/relatives,227020
+1980,Business,112700
+1980,Convention/conference,17560
+1980,Education,13690
+1980,Employment,15730
+1980,Holiday,371530
+1980,Other & not stated,109500
+1980,Total,1809080
+1980,Visiting friends/relatives,263850
+1981,Business,122250
+1981,Convention/conference,15100
+1981,Education,15220
+1981,Employment,16950
+1981,Holiday,389260
+1981,Other & not stated,106520
+1981,Total,1873450
+1981,Visiting friends/relatives,271420
+1982,Business,129240
+1982,Convention/conference,13360
+1982,Education,16680
+1982,Employment,18350
+1982,Holiday,386780
+1982,Other & not stated,106040
+1982,Total,1909300
+1982,Visiting friends/relatives,284220
+1983,Business,123790
+1983,Convention/conference,16660
+1983,Education,17500
+1983,Employment,11640
+1983,Holiday,408250
+1983,Other & not stated,97830
+1983,Total,1887790
+1983,Visiting friends/relatives,268250
+1984,Business,140030
+1984,Convention/conference,19420
+1984,Education,18390
+1984,Employment,12390
+1984,Holiday,449560
+1984,Other & not stated,104810
+1984,Total,2030130
+1984,Visiting friends/relatives,270500
+1985,Business,157990
+1985,Convention/conference,20130
+1985,Education,21010
+1985,Employment,16600
+1985,Holiday,513790
+1985,Other & not stated,125970
+1985,Total,2285100
+1985,Visiting friends/relatives,287080
+1986,Business,169660
+1986,Convention/conference,26490
+1986,Education,24220
+1986,Employment,19690
+1986,Holiday,709520
+1986,Other & not stated,153790
+1986,Total,2858750
+1986,Visiting friends/relatives,326030
+1987,Business,195330
+1987,Convention/conference,31140
+1987,Education,35170
+1987,Employment,21280
+1987,Holiday,957130
+1987,Other & not stated,174630
+1987,Total,3569770
+1987,Visiting friends/relatives,370200
+1988,Business,234290
+1988,Convention/conference,56730
+1988,Education,47790
+1988,Employment,26630
+1988,Holiday,1260020
+1988,Other & not stated,175350
+1988,Total,4498540
+1988,Visiting friends/relatives,448490
+1989,Business,230790
+1989,Convention/conference,25400
+1989,Education,62780
+1989,Employment,29960
+1989,Holiday,1126400
+1989,Other & not stated,145040
+1989,Total,4160570
+1989,Visiting friends/relatives,459890
+1990,Business,231130
+1990,Convention/conference,32550
+1990,Education,64620
+1990,Employment,29600
+1990,Holiday,1255480
+1990,Other & not stated,145510
+1990,Total,4429820
+1990,Visiting friends/relatives,456060
+1991,Business,221860
+1991,Convention/conference,42770
+1991,Education,57440
+1991,Employment,26950
+1991,Holiday,1435490
+1991,Other & not stated,111930
+1991,Total,4740710
+1991,Visiting friends/relatives,473930
+1992,Business,236330
+1992,Convention/conference,32330
+1992,Education,61330
+1992,Employment,23680
+1992,Holiday,1615410
+1992,Other & not stated,144660
+1992,Total,5206550
+1992,Visiting friends/relatives,489510
+1993,Business,268380
+1993,Convention/conference,50200
+1993,Education,68720
+1993,Employment,24030
+1993,Holiday,1890160
+1993,Other & not stated,164220
+1993,Total,5992450
+1993,Visiting friends/relatives,530540
+1994,Business,321920
+1994,Convention/conference,64930
+1994,Education,83380
+1994,Employment,27020
+1994,Holiday,2108970
+1994,Other & not stated,150480
+1994,Total,6723490
+1994,Visiting friends/relatives,605010
+1995,Business,360990
+1995,Convention/conference,89710
+1995,Education,97780
+1995,Employment,21670
+1995,Holiday,2257550
+1995,Other & not stated,197980
+1995,Total,7451670
+1995,Visiting friends/relatives,700140
+1996,Business,391950
+1996,Convention/conference,112890
+1996,Education,131050
+1996,Employment,23680
+1996,Holiday,2518380
+1996,Other & not stated,205610
+1996,Total,8329690
+1996,Visiting friends/relatives,781250
+1997,Business,436090
+1997,Convention/conference,112640
+1997,Education,143510
+1997,Employment,28570
+1997,Holiday,2534500
+1997,Other & not stated,244960
+1997,Total,8635730
+1997,Visiting friends/relatives,817590
+1998,Business,430350
+1998,Convention/conference,101640
+1998,Education,134780
+1998,Employment,36000
+1998,Holiday,2218570
+1998,Other & not stated,403440
+1998,Total,8334390
+1998,Visiting friends/relatives,842440
+1999,Business,440950
+1999,Convention/conference,107070
+1999,Education,152730
+1999,Employment,44580
+1999,Holiday,2502710
+1999,Other & not stated,347000
+1999,Total,8919020
+1999,Visiting friends/relatives,864430
+2000,Business,484500
+2000,Convention/conference,136050
+2000,Education,180280
+2000,Employment,50380
+2000,Holiday,2657100
+2000,Other & not stated,445150
+2000,Total,9862710
+2000,Visiting friends/relatives,977920
+2001,Business,434470
+2001,Convention/conference,135630
+2001,Education,209630
+2001,Employment,56790
+2001,Holiday,2484270
+2001,Other & not stated,592570
+2001,Total,9711500
+2001,Visiting friends/relatives,942360
+2002,Business,442450
+2002,Convention/conference,129930
+2002,Education,218940
+2002,Employment,81850
+2002,Holiday,2401480
+2002,Other & not stated,718980
+2002,Total,9682370
+2002,Visiting friends/relatives,847580
+2003,Business,447470
+2003,Convention/conference,142530
+2003,Education,225660
+2003,Employment,83890
+2003,Holiday,2440560
+2003,Other & not stated,473550
+2003,Total,9491690
+2003,Visiting friends/relatives,932210
+2004,Business,509370
+2004,Convention/conference,156960
+2004,Education,263070
+2004,Employment,99290
+2004,Holiday,2766140
+2004,Other & not stated,333790
+2004,Total,10399010
+2004,Visiting friends/relatives,1070900
+2005,Business,538780
+2005,Convention/conference,182700
+2005,Education,278110
+2005,Employment,115520
+2005,Holiday,2955680
+2005,Other & not stated,216650
+2005,Total,10925690
+2005,Visiting friends/relatives,1175360
+2006,Business,573740
+2006,Convention/conference,182990
+2006,Education,290280
+2006,Employment,168490
+2006,Holiday,2867590
+2006,Other & not stated,219240
+2006,Total,10986290
+2006,Visiting friends/relatives,1190770
+2007,Business,609080
+2007,Convention/conference,203120
+2007,Education,304670
+2007,Employment,180640
+2007,Holiday,2825020
+2007,Other & not stated,3084190
+2007,Total,16930540
+2007,Visiting friends/relatives,1258540
+2008,Business,610600
+2008,Convention/conference,204270
+2008,Education,310990
+2008,Employment,195360
+2008,Holiday,2675410
+2008,Other & not stated,6104920
+2008,Total,22832010
+2008,Visiting friends/relatives,1314480
+2009,Business,533200
+2009,Convention/conference,157080
+2009,Education,340340
+2009,Employment,187000
+2009,Holiday,2626700
+2009,Other & not stated,6468590
+2009,Total,23567710
+2009,Visiting friends/relatives,1470940
+2010,Business,613800
+2010,Convention/conference,187390
+2010,Education,365460
+2010,Employment,194570
+2010,Holiday,2744850
+2010,Other & not stated,7306900
+2010,Total,25853690
+2010,Visiting friends/relatives,1513820
+2011,Business,650460
+2011,Convention/conference,186120
+2011,Education,370470
+2011,Employment,216810
+2011,Holiday,2632410
+2011,Other & not stated,8041270
+2011,Total,27276420
+2011,Visiting friends/relatives,1540740
+2012,Business,648930
+2012,Convention/conference,206570
+2012,Education,370900
+2012,Employment,235970
+2012,Holiday,2783080
+2012,Other & not stated,8482170
+2012,Total,28746080
+2012,Visiting friends/relatives,1645450
+2013,Business,638900
+2013,Convention/conference,193290
+2013,Education,372740
+2013,Employment,226090
+2013,Holiday,2984710
+2013,Other & not stated,8993060
+2013,Total,30382610
+2013,Visiting friends/relatives,1782490
+2014,Business,625950
+2014,Convention/conference,225710
+2014,Education,380030
+2014,Employment,254820
+2014,Holiday,3201930
+2014,Other & not stated,9433280
+2014,Total,32122920
+2014,Visiting friends/relatives,1939680
+2015,Business,602000
+2015,Convention/conference,201230
+2015,Education,459520
+2015,Employment,317100
+2015,Holiday,3496850
+2015,Other & not stated,9724260
+2015,Total,33740190
+2015,Visiting friends/relatives,2069140
+2016,Business,612010
+2016,Convention/conference,205740
+2016,Education,501560
+2016,Employment,279180
+2016,Holiday,4250000
+2016,Other & not stated,10310230
+2016,Total,36478200
+2016,Visiting friends/relatives,2080360
+2017,Business,1092570
+2017,Convention/conference,425910
+2017,Education,627490
+2017,Employment,344930
+2017,Holiday,7536270
+2017,Other & not stated,5605730
+2017,Total,38701110
+2017,Visiting friends/relatives,3717650
+2018,Business,1594010
+2018,Convention/conference,611480
+2018,Education,736040
+2018,Employment,387470
+2018,Holiday,10661430
+2018,Other & not stated,692620
+2018,Total,40614060
+2018,Visiting friends/relatives,5624010
+2019,Business,1601000
+2019,Convention/conference,639260
+2019,Education,756530
+2019,Employment,403020
+2019,Holiday,10962440
+2019,Other & not stated,637080
+2019,Total,41549660
+2019,Visiting friends/relatives,5775440
+2020,Business,275810
+2020,Convention/conference,77740
+2020,Education,220860
+2020,Employment,139160
+2020,Holiday,2297970
+2020,Other & not stated,179390
+2020,Total,9320230
+2020,Visiting friends/relatives,1469170
+2021,Business,54480
+2021,Convention/conference,3990
+2021,Education,12480
+2021,Employment,46060
+2021,Holiday,70720
+2021,Other & not stated,50590
+2021,Total,1094150
+2021,Visiting friends/relatives,308780
+2022,Business,630440
+2022,Convention/conference,243210
+2022,Education,232870
+2022,Employment,249880
+2022,Holiday,3556560
+2022,Other & not stated,306870
+2022,Total,17839970
+2022,Visiting friends/relatives,3700120
+2023,Business,1004750
+2023,Convention/conference,485080
+2023,Education,505950
+2023,Employment,457060
+2023,Holiday,8561640
+2023,Other & not stated,645470
+2023,Total,34325330
+2023,Visiting friends/relatives,5502740
+2024,Business,1105910
+2024,Convention/conference,509390
+2024,Education,604730
+2024,Employment,509940
+2024,Holiday,10504730
+2024,Other & not stated,697040
+2024,Total,39733580
+2024,Visiting friends/relatives,5935060
+2025,Business,647010
+2025,Convention/conference,288140
+2025,Education,456280
+2025,Employment,334150
+2025,Holiday,6550670
+2025,Other & not stated,417260
+2025,Total,24642530
+2025,Visiting friends/relatives,3627710
