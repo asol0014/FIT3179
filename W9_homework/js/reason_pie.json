@@ -1,0 +1,49 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/data/reason_v2_processed.csv"
+  },
+  "transform": [
+    {"filter": {"field": "year","oneOf": [1990, 1995, 2000, 2005, 2010, 2015, 2020, 2025]}},
+    {"filter": "datum.Reasonforjourney != 'Total'"}
+  ],
+  "facet": {
+    "field": "year",
+    "type": "ordinal",
+    "header": {
+    "title": null,
+    "labelFontSize": 18
+  }
+  },
+  "columns": 4,
+  "spec": {
+    "mark": {"type": "arc"},
+    "encoding": {
+      "theta": {"field": "OBS_VALUE", "type": "quantitative"},
+      "color": {
+        "field": "Reasonforjourney",
+        "type": "nominal",
+        "scale": {
+          "domain": ["Employment", "Holiday", "Education", "Visiting friends/relatives", "Other & not stated", "Business", "Convention/conference"],
+          "range": ["#b2df8a", "#a6cee3", "#fb9a99", "#1f78b4", "lightgrey", "#fdbf6f", "#33a02c"]
+        },
+        "legend": {
+          "orient": "bottom",
+          "direction": "horizontal",
+          "title": "Reason for travel",
+          "symbolSize": 500,
+          "titleFontSize": 16,
+          "labelFontSize": 14
+        }
+      },
+      
+      "tooltip": [
+        {"field": "Reasonforjourney", "type": "nominal", "title": "Reason for travel"},
+        {"field": "OBS_VALUE", "type": "quantitative", "title": "Number of Passengers", "format": ","}
+      ]
+    }
+  },
+  "config": {
+    "view": {"stroke": "transparent"}
+  }
+}
