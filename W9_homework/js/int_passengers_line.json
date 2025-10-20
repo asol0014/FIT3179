@@ -7,22 +7,6 @@
       "bind": {
         "input": "select",
         "options": [
-          "ADELAIDE",
-          "BRISBANE",
-          "CAIRNS",
-          "CANBERRA",
-          "DARWIN",
-          "GOLD COAST",
-          "HOBART",
-          "MELBOURNE",
-          "NEWCASTLE",
-          "PERTH",
-          "SUNSHINE COAST",
-          "SYDNEY",
-          "TOWNSVILLE",
-          "All Australian Airports"
-        ],
-        "labels": [
             "Adelaide",
             "Brisbane",
             "Cairns",
@@ -30,6 +14,7 @@
             "Darwin",
             "Gold Coast",
             "Hobart",
+            "Launceston",
             "Melbourne",
             "Newcastle",
             "Perth",
@@ -38,7 +23,24 @@
             "Townsville",
             "All Australian Airports"
           ],
-        "name": "Airport 1: "
+        "labels": [
+            "Adelaide",
+            "Brisbane",
+            "Cairns",
+            "Canberra",
+            "Darwin",
+            "Gold Coast",
+            "Hobart",
+            "Launceston",
+            "Melbourne",
+            "Newcastle",
+            "Perth",
+            "Sunshine Coast",
+            "Sydney",
+            "Townsville",
+            "All Australian Airports"
+          ],
+        "name": "Airport 1 [GREEN]: "
       }
     },
     {
@@ -47,23 +49,22 @@
       "bind": {
         "input": "select",
         "options": [
-          "ADELAIDE",
-          "BRISBANE",
-          "CAIRNS",
-          "CANBERRA",
-          "DARWIN",
-          "GOLD COAST",
-          "HOBART",
-          "KARRATHA",
-          "LAUNCESTON",
-          "MELBOURNE",
-          "NEWCASTLE",
-          "PERTH",
-          "SUNSHINE COAST",
-          "SYDNEY",
-          "TOWNSVILLE",
-          "All Australian Airports"
-        ],
+            "Adelaide",
+            "Brisbane",
+            "Cairns",
+            "Canberra",
+            "Darwin",
+            "Gold Coast",
+            "Hobart",
+            "Launceston",
+            "Melbourne",
+            "Newcastle",
+            "Perth",
+            "Sunshine Coast",
+            "Sydney",
+            "Townsville",
+            "All Australian Airports"
+          ],
         "labels": [
             "Adelaide",
             "Brisbane",
@@ -72,18 +73,16 @@
             "Darwin",
             "Gold Coast",
             "Hobart",
-            "Karratha",
             "Launceston",
             "Melbourne",
             "Newcastle",
             "Perth",
-            "Proserpine",
             "Sunshine Coast",
             "Sydney",
             "Townsville",
             "All Australian Airports"
           ],
-        "name": "Airport 2: "
+        "name": "Airport 2 [BLUE]: "
       }
     }
   ],
@@ -95,13 +94,13 @@
   "vconcat": [
     {
       "width":"container",
-      "title": "Airport 1 & 2: Number of International Passenger Arrivals",
+      "title": "Number of International Passenger Arrivals",
       "layer": [
       {"transform": 
       [
         {"filter": "datum.AIRPORT == CHART1_airport_selection"}
       ],
-      "mark": {"type": "line", "color": "lightseagreen"},
+      "mark": {"type": "line", "color": "#33a02c"},
       "encoding": {
         "tooltip": [
           {"field": "Month", "type": "temporal", "format": "%B"},
@@ -140,7 +139,7 @@
       [
         {"filter": "datum.AIRPORT == CHART2_airport_selection"}
       ],
-      "mark": {"type": "line", "color": "DarkSlateBlue"},
+      "mark": {"type": "line", "color": "#a6cee3"},
       "encoding": {
         "tooltip": [
           {"field": "Month", "type": "temporal", "format": "%B"},
@@ -179,7 +178,7 @@
   ]
   },
     {
-      "title": "Airport 1 & 2: Number of International Passenger Depatures",
+      "title": "Number of International Passenger Depatures",
       "width":"container",
 
       "layer": [
@@ -187,7 +186,7 @@
       [
         {"filter": "datum.AIRPORT == CHART1_airport_selection"}
       ],
-      "mark": {"type": "line", "color": "lightseagreen"},
+      "mark": {"type": "line", "color": "#33a02c"},
       "encoding": {
         "tooltip": [
           {"field": "Month", "type": "temporal", "format": "%B"},
@@ -224,7 +223,7 @@
       [
         {"filter": "datum.AIRPORT == CHART2_airport_selection"}
       ],
-      "mark": {"type": "line", "color": "DarkSlateBlue"},
+      "mark": {"type": "line", "color": "#a6cee3"},
       "encoding": {
         "tooltip": [
           {"field": "Month", "type": "temporal", "format": "%B"},
