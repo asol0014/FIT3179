@@ -64,11 +64,53 @@
             "scheme": "tealblues"
           },
           "legend": null
-
         },
           "tooltip": [
             {"field": "airport", "type": "nominal", "title": "Airport"},
             {"field": "Dom_Acm_Total_Sum", "type": "quantitative", "title":"Domestic flight arrivals & depatures", "format": ",.0f"}]
+      }
+    },
+    {
+      "data": {
+          "url": "https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/data/aircraft.csv"
+        },
+        "transform": [
+          { "filter": {"not":{ "field": "airport", "oneOf": ["All Australian Airports"]}}},
+          { "aggregate":
+            [
+              {"op": "sum", "field": "Dom_Acm_In", "as": "Dom_Acm_In_Sum"},
+              {"op": "sum", "field": "Dom_Acm_Out", "as": "Dom_Acm_Out_Sum"},
+              {"op": "sum", "field": "Dom_Acm_Total", "as": "Dom_Acm_Total_Sum"},
+              {"op": "sum", "field": "Int_Acm_In", "as": "Int_Acm_In_Sum"},
+              {"op": "sum", "field": "Int_Acm_Out", "as": "Int_Acm_Out_Sum"},
+              {"op": "sum", "field": "Int_Acm_Total", "as": "Int_Acm_Total_Sum"},
+              {"op": "sum", "field": "Acm_In", "as": "Acm_In_Sum"},
+              {"op": "sum", "field": "Acm_Out", "as": "Acm_Out_Sum"},
+              {"op": "sum", "field": "Acm_Total", "as": "Acm_Total_Sum"},
+              {"op": "sum", "field": "Year", "as": "Year_Sum"},
+              {"op": "sum", "field": "Month", "as": "Month_Sum"}
+            ],
+            "groupby": ["airport"]
+          },
+          {
+            "lookup": "airport",
+            "from": {
+              "data": {"url": "https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/data/australian_airports.csv"},
+              "key": "airport",
+              "fields": ["latitude", "longitude"]
+            }
+          }
+        ],
+      "mark": {"type": "text", "dy": -10, "dx": 0, "fontWeight": "lighter"},
+      "encoding": {
+        "longitude": {"field": "dest_longitude", "type": "quantitative"},
+        "latitude": {"field": "dest_latitude", "type": "quantitative"},
+        "text": {"field": "Country of Stay/Residence", "type": "nominal"},
+        "tooltip": [
+          {"field": "Country of Stay/Residence", "type": "nominal", "title": "Passengers incoming from"},
+          {"field": "OBS_VALUE", "type": "quantitative", "title": "Number of Passengers", "format": ","},
+          {"field": "TIME_PERIOD", "type": "nominal", "title": "Period"}
+        ]
       }
     }
   ]
