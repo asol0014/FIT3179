@@ -66,7 +66,8 @@
       "transform": [
         {"filter": "datum.Year >= 1990"},
         {"filter": "datum.AIRPORT == airport_selection"},
-        {"filter": "datum.Acm_In > 0"}
+        {"filter": "datum.Acm_In > 0"},
+        {"bin": {"maxbins": 10}, "field": "Acm_In", "as": "Acm_In_binned"}
       ],
       "mark": "rect",
       "encoding": {
@@ -84,18 +85,10 @@
           "axis": {"title": "Year"}
 
         },
-        "size": {
-          "field": "Acm_In",
-          "type": "quantitative",
-          "aggregate": "sum",
-          "scale": {"type": "log"}
-        },
         "color": {
-          "field": "Acm_In",
-          "type": "quantitative",
-          "aggregate": "sum",
+          "field": "Acm_In_binned",
+          "type": "ordinal",
           "scale": {
-            "type": "log",
             "scheme": "goldorange",
             "reverse":false}
         },
@@ -114,7 +107,8 @@
       "transform": [
         {"filter": "datum.Year >= 1990"},
         {"filter": "datum.AIRPORT == airport_selection"},
-        {"filter": "datum.Acm_Out > 0"}
+        {"filter": "datum.Acm_Out > 0"},
+        {"bin": {"maxbins": 6}, "field": "Acm_Out", "as": "Acm_Out_binned"}
       ],
       "mark": "rect",
       "encoding": {
@@ -123,29 +117,18 @@
           "type": "ordinal",
           "timeUnit": "month",
           "axis": {"title": "Month"}
-
         },
         "x": {
           "field": "Year",
           "type": "ordinal",
           "timeUnit": "year",
           "axis": {"title": "Year"}
-
-        },
-        "size": {
-          "field": "Acm_Out",
-          "type": "quantitative",
-          "aggregate": "sum",
-          "scale": {"type": "log"}
         },
         "color": {
-          "field": "Acm_Out",
-          "type": "quantitative",
-          "aggregate": "sum",
+          "field": "Acm_Out_binned",
+          "type": "ordinal",
           "scale": {
-            "type": "log",
-            "scheme": "goldorange-3",
-            "reverse":true
+            "scheme": "goldorange"
             }
         },
         "tooltip": [
