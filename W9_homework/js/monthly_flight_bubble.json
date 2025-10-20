@@ -61,24 +61,28 @@
 
   "vconcat":[
     {
-      "title": "Number of planes arriving since 1985",
+      "title": "Number of planes arriving",
       "data": { "url": "https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/data/monthly_flights_in.csv"},
       "transform": [
         {"filter": "datum.Year >= 1990"},
         {"filter": "datum.AIRPORT == airport_selection"},
         {"filter": "datum.Acm_In > 0"}
       ],
-      "mark": "circle",
+      "mark": "rect",
       "encoding": {
         "y": {
           "field": "Month",
           "type": "ordinal",
-          "timeUnit": "month"
+          "timeUnit": "month",
+        "axis": {"title": "Month"}
+
         },
         "x": {
           "field": "Year",
           "type": "ordinal",
-          "timeUnit": "year"
+          "timeUnit": "year",
+          "axis": {"title": "Year"}
+
         },
         "size": {
           "field": "Acm_In",
@@ -92,7 +96,7 @@
           "aggregate": "sum",
           "scale": {
             "type": "log",
-            "scheme": "magma",
+            "scheme": "goldorange",
             "reverse":false}
         },
         "tooltip": [
@@ -105,24 +109,28 @@
       }
     },
   {
-      "title": "Number of planes departing since 1985",
+      "title": "Number of planes departing",
       "data": { "url": "https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/data/monthly_flights_out.csv"},
       "transform": [
         {"filter": "datum.Year >= 1990"},
         {"filter": "datum.AIRPORT == airport_selection"},
         {"filter": "datum.Acm_Out > 0"}
       ],
-      "mark": "circle",
+      "mark": "rect",
       "encoding": {
         "y": {
           "field": "Month",
           "type": "ordinal",
-          "timeUnit": "month"
+          "timeUnit": "month",
+          "axis": {"title": "Month"}
+
         },
         "x": {
           "field": "Year",
           "type": "ordinal",
-          "timeUnit": "year"
+          "timeUnit": "year",
+          "axis": {"title": "Year"}
+
         },
         "size": {
           "field": "Acm_Out",
@@ -136,7 +144,8 @@
           "aggregate": "sum",
           "scale": {
             "type": "log",
-            "scheme": "yellowgreenblue"
+            "scheme": "goldorange-3",
+            "reverse":true
             }
         },
         "tooltip": [
