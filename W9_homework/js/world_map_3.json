@@ -1,0 +1,233 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height":300,
+  "config": {
+    "legend": {
+      "symbolDirection": "horizontal",
+      "orient": "bottom"
+    }
+  },
+  "view": {"stroke": "white", "strokeOpacity":0},
+  "params": [
+    
+    {
+      "name": "Zoom",
+      "value": "100",
+      "bind": {"input": "range", "min": 100, "max": 500, "step": 1}
+    },
+    {
+      "name": "LeftRight",
+      "value": "290",
+      "bind": {"input": "range", "min": 0, "max": 1000, "step": 1}
+    },
+    {
+      "name": "UpDown",
+      "value": "160",
+      "bind": {"input": "range", "min": -150, "max": 300, "step": 1}
+    },
+  {
+    "name": "YearParam",
+    "value": "2015",
+    "bind": {
+      "input": "select",
+      "options": ["1985", "1990", "1995", "2000", "2005", "2010", "2015", "2020", "2025"],
+      "name": "Year: "
+    }
+  },
+  {
+    "name": "MonthParam",
+    "value": "01",
+    "bind": {
+      "input": "select",
+      "options": ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"],
+      "name": "Month: "
+    }
+  }
+],
+  "layer": [
+    
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/data/world_countries.json",
+        "format": {
+          "type": "json"
+        }
+      },
+      "transform": [{"filter": "datum.CONTINENT != 'Antarctica'"}],
+      "projection": {
+        "type": "equirectangular",
+        "rotate": [-150, 0, 0],
+        "scale": {
+        "expr": "Zoom"
+      },
+      "translate": {"expr": "[LeftRight,UpDown]"
+    },
+    "center": [0, 20]
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "lightgrey",
+        "stroke": "darkgrey"
+      }
+    },
+    {
+      "data": {
+        "url":
+        "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/7_others/oceans.topojson",
+        "format": {"type": "topojson", "feature": "oceans"}
+      },
+      "mark": {"type": "geoshape", "fill": "skyblue"},
+      "projection": {
+        "type": "equirectangular",
+        "rotate": [-150, 0, 0],
+        "scale": {
+        "expr": "Zoom"
+      },
+      "translate": {"expr": "[LeftRight,UpDown]"
+    },
+    "center": [0, 20]
+      }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/data/country_passengers_from.csv"
+      },
+      "transform": [
+        {"calculate": "split(datum.TIME_PERIOD, '-')[0]", "as": "Year"},
+        {"calculate": "split(datum.TIME_PERIOD, '-')[1]", "as": "Month"},
+
+        {"filter": "datum.Year == YearParam"},
+        {"filter": "datum.Month == MonthParam"},
+        
+        {"filter": {"field": "Origin", "equal": "Australia"}},
+        {"filter": {"field": "CAT_TRAVELLER", "equal": "6"}},
+        {"filter": "test(/other/i, datum['Country of Stay/Residence']) == false"},
+        {"filter": "test(/total/i, datum['Country of Stay/Residence']) == false"},
+        {"filter": "test(/not stated/i, datum['Country of Stay/Residence']) == false"},
+        {"filter": "test(/UK, CIs & IOM/i, datum['Country of Stay/Residence']) == false"},
+
+        
+        {"lookup": "Origin",
+          "from": {
+            "data": {
+              "url": "https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/data/country_centroids.csv"
+            },
+            "key": "Country",
+            "fields": ["Latitude", "Longitude"]
+          },
+          "as": ["origin_latitude", "origin_longitude"]
+        },
+        {
+          "lookup": "Country of Stay/Residence",
+          "from": {
+            "data": {
+              "url": "https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/data/country_centroids.csv"
+            },
+            "key": "Country",
+            "fields": ["Latitude", "Longitude"]
+          },
+          "as": ["dest_latitude", "dest_longitude"]
+        }
+      ],
+      "layer":[{
+      "projection": {
+        "type": "equirectangular",
+        "rotate": [-150, 0, 0],
+        "scale": {
+        "expr": "Zoom"
+      },
+      "translate": {"expr": "[LeftRight,UpDown]"
+    },
+    "center": [0, 20]
+      },
+      "mark": {"type": "rule"},
+      "encoding": {
+        "longitude": {"field": "origin_longitude", "type": "quantitative"},
+        "latitude": {"field": "origin_latitude", "type": "quantitative"},
+        "longitude2": {"field": "dest_longitude"},
+        "latitude2": {"field": "dest_latitude"},
+        "tooltip": [
+          {"field": "Country of Stay/Residence", "type": "nominal", "title": "Passengers incoming from"},
+          {"field": "OBS_VALUE", "type": "quantitative", "title": "Number of Passengers", "format": ","},
+          {"field": "TIME_PERIOD", "type": "nominal", "title": "Period"}
+        ],
+        "color": {
+          "value": "darkorange"
+        },
+        "opacity":{
+          "field": "OBS_VALUE",
+          "type": "quantitative",
+          "scale": {"range": [0.5, 1]}
+
+        },
+        "strokeWidth": {
+          "field": "OBS_VALUE",
+          "type": "quantitative",
+          "scale": {"range": [0.5, 5]}, 
+          "title": "Number of incoming passengers"
+        }
+      }
+    },
+    {
+      "mark": {"type": "point", "color": "darkorange", "size": 14},
+      "encoding": {
+        "longitude": {"field": "dest_longitude", "type": "quantitative"},
+        "latitude": {"field": "dest_latitude", "type": "quantitative"},
+        "tooltip": [
+          {"field": "Country of Stay/Residence", "type": "nominal", "title": "Passengers incoming from"},
+          {"field": "OBS_VALUE", "type": "quantitative", "title": "Number of Passengers", "format": ","},
+          {"field": "TIME_PERIOD", "type": "nominal", "title": "Period"}
+        ]
+      },
+      "projection": {
+        "type": "equirectangular",
+        "rotate": [-150, 0, 0],
+        "scale": {
+        "expr": "Zoom"
+      },
+      "translate": {"expr": "[LeftRight,UpDown]"
+    },
+    "center": [0, 20]
+      }
+    },
+    {
+      "projection": {
+        "type": "equirectangular",
+        "rotate": [-150, 0, 0],
+        "scale": {
+        "expr": "Zoom"
+      },
+      "translate": {"expr": "[LeftRight,UpDown]"
+    },
+    "center": [0, 20]
+      },
+      "transform": [
+        {
+          "calculate": "toNumber(datum.OBS_VALUE)",
+          "as": "OBS_VALUE_int"
+        },
+        {
+          "window": [{"op": "rank", "as": "rank"}],
+          "sort": [{"field": "OBS_VALUE_int", "order": "descending"}]
+        },
+        {
+          "filter": "datum.rank <= 10"
+        }
+      ],
+      "mark": {"type": "text", "dy": -10, "dx": 0, "fontWeight": "lighter"},
+      "encoding": {
+        "longitude": {"field": "dest_longitude", "type": "quantitative"},
+        "latitude": {"field": "dest_latitude", "type": "quantitative"},
+        "text": {"field": "Country of Stay/Residence", "type": "nominal"},
+        "tooltip": [
+          {"field": "Country of Stay/Residence", "type": "nominal", "title": "Passengers incoming from"},
+          {"field": "OBS_VALUE", "type": "quantitative", "title": "Number of Passengers", "format": ","},
+          {"field": "TIME_PERIOD", "type": "nominal", "title": "Period"}
+        ]
+      }
+    }
+    ]
+  } 
+  ]
+}
