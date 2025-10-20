@@ -134,13 +134,13 @@
         "opacity":{
           "field": "OBS_VALUE",
           "type": "quantitative",
-          "scale": {"range": [0.5, 1]}
+          "scale": {"range": [0.7, 1]}
 
         },
         "strokeWidth": {
           "field": "OBS_VALUE",
           "type": "quantitative",
-          "scale": {"range": [0.5, 5]}, 
+          "scale": {"range": [1, 5]}, 
           "title": "Number of incoming passengers"
         }
       }
