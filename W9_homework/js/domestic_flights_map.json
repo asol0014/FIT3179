@@ -1,7 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height":350,
   "title": "Total Departures & Arrivals at Australian Domestic Airports",
   "config": {"font": "Helvetica"}, 
   "view": {"stroke": "transparent"},
@@ -11,7 +10,7 @@
     {
       "data": {
         "url":"https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/data/aus_states.json",
-        "format":{ "type":"topojson", "feature":"aus_states"} },
+        "format":{ "type":"json"} },
         "mark": {"type": "geoshape", "fill": "lightgray", "stroke":"white"}
     },
     {
@@ -61,7 +60,7 @@
           "title":"Total Flights from 1975-2025",
           "type": "quantitative",
           "scale": {
-            "scheme": "tealblues"
+            "scheme": "oranges"
           },
           "legend": null
         },
@@ -76,6 +75,8 @@
         },
         "transform": [
           { "filter": {"not":{ "field": "airport", "oneOf": ["All Australian Airports"]}}},
+          { "filter": {"not": {"field": "airport","oneOf": ["Proserpine", "Sydney", "Sunshine Coast", "Gold Coast"]}}},
+
           { "aggregate":
             [
               {"op": "sum", "field": "Dom_Acm_In", "as": "Dom_Acm_In_Sum"},
@@ -101,15 +102,57 @@
             }
           }
         ],
-      "mark": {"type": "text", "dy": -10, "dx": 0, "fontWeight": "lighter"},
+      "mark": {"type": "text", "dy": 0, "dx": 30, "fontWeight": "lighter", "size": 10},
       "encoding": {
-        "longitude": {"field": "dest_longitude", "type": "quantitative"},
-        "latitude": {"field": "dest_latitude", "type": "quantitative"},
-        "text": {"field": "Country of Stay/Residence", "type": "nominal"},
+        "longitude": {"field": "longitude", "type": "quantitative"},
+        "latitude": {"field": "latitude", "type": "quantitative"},
+        "text": {"field": "airport", "type": "nominal"},
         "tooltip": [
-          {"field": "Country of Stay/Residence", "type": "nominal", "title": "Passengers incoming from"},
-          {"field": "OBS_VALUE", "type": "quantitative", "title": "Number of Passengers", "format": ","},
-          {"field": "TIME_PERIOD", "type": "nominal", "title": "Period"}
+          {"field": "airport", "type": "nominal", "title": "Airport"},
+          {"field": "Dom_Acm_Total_Sum", "type": "quantitative", "title": "Domestic flight arrivals & depatures", "format": ","},
+        ]
+      }
+    },
+    {
+      "data": {
+          "url": "https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/data/aircraft.csv"
+        },
+        "transform": [
+          { "filter": {"not":{ "field": "airport", "oneOf": ["All Australian Airports"]}}},
+          { "filter": {"field": "airport","oneOf": ["Proserpine", "Sydney", "Sunshine Coast", "Gold Coast"]}},
+          { "aggregate":
+            [
+              {"op": "sum", "field": "Dom_Acm_In", "as": "Dom_Acm_In_Sum"},
+              {"op": "sum", "field": "Dom_Acm_Out", "as": "Dom_Acm_Out_Sum"},
+              {"op": "sum", "field": "Dom_Acm_Total", "as": "Dom_Acm_Total_Sum"},
+              {"op": "sum", "field": "Int_Acm_In", "as": "Int_Acm_In_Sum"},
+              {"op": "sum", "field": "Int_Acm_Out", "as": "Int_Acm_Out_Sum"},
+              {"op": "sum", "field": "Int_Acm_Total", "as": "Int_Acm_Total_Sum"},
+              {"op": "sum", "field": "Acm_In", "as": "Acm_In_Sum"},
+              {"op": "sum", "field": "Acm_Out", "as": "Acm_Out_Sum"},
+              {"op": "sum", "field": "Acm_Total", "as": "Acm_Total_Sum"},
+              {"op": "sum", "field": "Year", "as": "Year_Sum"},
+              {"op": "sum", "field": "Month", "as": "Month_Sum"}
+            ],
+            "groupby": ["airport"]
+          },
+          {
+            "lookup": "airport",
+            "from": {
+              "data": {"url": "https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/data/australian_airports.csv"},
+              "key": "airport",
+              "fields": ["latitude", "longitude"]
+            }
+          }
+        ],
+      "mark": {"type": "text", "dy": 0, "dx": -30, "fontWeight": "lighter", "size": 10},
+      "encoding": {
+        "longitude": {"field": "longitude", "type": "quantitative"},
+        "latitude": {"field": "latitude", "type": "quantitative"},
+        "text": {"field": "airport", "type": "nominal"},
+        "tooltip": [
+          {"field": "airport", "type": "nominal", "title": "Airport"},
+          {"field": "Dom_Acm_Total_Sum", "type": "quantitative", "title": "Domestic flight arrivals & depatures", "format": ","},
         ]
       }
     }
