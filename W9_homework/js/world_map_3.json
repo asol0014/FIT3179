@@ -13,7 +13,7 @@
     
     {
       "name": "Zoom",
-      "value": "100",
+      "value": "200",
       "bind": {"input": "range", "min": 100, "max": 500, "step": 1}
     },
     {
