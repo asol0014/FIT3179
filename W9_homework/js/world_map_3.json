@@ -10,23 +10,7 @@
   },
   "view": {"stroke": "white", "strokeOpacity":0},
   "params": [
-    
     {
-      "name": "Zoom",
-      "value": "200",
-      "bind": {"input": "range", "min": 100, "max": 500, "step": 1}
-    },
-    {
-      "name": "LeftRight",
-      "value": "290",
-      "bind": {"input": "range", "min": 0, "max": 1000, "step": 1}
-    },
-    {
-      "name": "UpDown",
-      "value": "160",
-      "bind": {"input": "range", "min": -150, "max": 300, "step": 1}
-    },
-  {
     "name": "YearParam",
     "value": "2015",
     "bind": {
@@ -43,7 +27,25 @@
       "options": ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"],
       "name": "Month: "
     }
-  }
+  },
+  {
+      "name": "Zoom",
+      "value": "100",
+      "bind": {"input": "range", "min": 100, "max": 500, "step": 1}
+    },
+    {
+      "name": "LeftRight",
+      "value": "290",
+      "bind": {"input": "range", "min": 0, "max": 1000, "step": 1,
+      "name": "Move left and right: "}
+    },
+    {
+      "name": "UpDown",
+      "value": "160",
+      "bind": {"input": "range", "min": -150, "max": 300, "step": 1,
+      "name": "Move up and down: "}
+    }
+  
 ],
   "layer": [
     
