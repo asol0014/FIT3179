@@ -45,7 +45,7 @@
             }
           }
         ],
-      "mark": {"type": "circle", "opacity": 0.8, "width": 10, "tooltip": true},
+      "mark": {"type": "circle", "opacity": 0.8, "width": 10, "tooltip": true, "color":"#ff7f00"},
       "encoding": {
         "longitude": {"field": "longitude", "type": "quantitative"},
         "latitude": {"field": "latitude", "type": "quantitative"},
@@ -53,18 +53,10 @@
           "field": "Dom_Acm_Total_Sum",
           "type": "quantitative",
           "title": "Total Flights from 1975-2025",
-          "legend": null
-
+          "legend": null,
+          "scale":{"rangeMin":100, "rangeMax":500}
         },
-        "color": {
-          "field": "Dom_Acm_Total_Sum",
-          "title":"Total Flights from 1975-2025",
-          "type": "quantitative",
-          "scale": {
-            "scheme": "oranges"
-          },
-          "legend": null
-        },
+        
           "tooltip": [
             {"field": "airport", "type": "nominal", "title": "Airport"},
             {"field": "Dom_Acm_Total_Sum", "type": "quantitative", "title":"Domestic flight arrivals & depatures", "format": ",.0f"}]

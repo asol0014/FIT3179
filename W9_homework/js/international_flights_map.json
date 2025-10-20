@@ -44,27 +44,18 @@
               "fields": ["latitude", "longitude"]
             }
           },
-          {"filter":{"field": "Int_Acm_Total_Sum","gt":0}}
+          {"filter":{"field": "Int_Acm_Total_Sum","gt":500}}
         ],
-      "mark": {"type": "circle", "opacity": 0.8, "width": 10, "tooltip": true},
+      "mark": {"type": "circle", "opacity": 0.8, "width": 10, "tooltip": true, "color":"#ff7f00"},
       "encoding": {
         "longitude": {"field": "longitude", "type": "quantitative"},
         "latitude": {"field": "latitude", "type": "quantitative"},
         "size": {
-          "field": "Int_Acm_Total_Sum",
+          "field": "Dom_Acm_Total_Sum",
           "type": "quantitative",
           "title": "Total Flights from 1975-2025",
-          "legend": null
-
-        },
-        "color": {
-          "field": "Int_Acm_Total_Sum",
-          "title":"Total Flights from 1975-2025",
-          "type": "quantitative",
-          "scale": {
-            "scheme": "oranges"
-          },
-          "legend": null
+          "legend": null,
+          "scale":{"rangeMin":100, "rangeMax":500}
         },
           "tooltip": [
             {"field": "airport", "type": "nominal", "title": "Airport"},
@@ -77,7 +68,7 @@
         },
         "transform": [
           { "filter": {"not":{ "field": "airport", "oneOf": ["All Australian Airports"]}}},
-          { "filter": {"not": {"field": "airport","oneOf": ["Proserpine", "Sydney", "Sunshine Coast", "Gold Coast"]}}},
+          { "filter": {"not": {"field": "airport","oneOf": ["Proserpine", "Sydney", "Sunshine Coast", "Gold Coast", "Newcastle"]}}},
 
           { "aggregate":
             [
@@ -103,7 +94,7 @@
               "fields": ["latitude", "longitude"]
             }
           },
-          {"filter":{"field": "Int_Acm_Total_Sum","gt":0}}
+          {"filter":{"field": "Int_Acm_Total_Sum","gt":500}}
         ],
       "mark": {"type": "text", "dy": 0, "dx": 30, "fontWeight": "lighter", "size": 10},
       "encoding": {
