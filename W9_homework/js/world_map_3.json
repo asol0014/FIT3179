@@ -85,15 +85,6 @@
       },
       "transform": [
         {"filter": "datum.Year == YearParam"},
-        
-        {"filter": {"field": "Origin", "equal": "Australia"}},
-        {"filter": {"field": "CAT_TRAVELLER", "equal": "6"}},
-        {"filter": "test(/other/i, datum['Country of Stay/Residence']) == false"},
-        {"filter": "test(/total/i, datum['Country of Stay/Residence']) == false"},
-        {"filter": "test(/not stated/i, datum['Country of Stay/Residence']) == false"},
-        {"filter": "test(/UK, CIs & IOM/i, datum['Country of Stay/Residence']) == false"},
-
-        
         {"lookup": "Origin",
           "from": {
             "data": {
