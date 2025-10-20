@@ -54,7 +54,7 @@
           "field": "Dom_Acm_Total_Sum",
           "type": "quantitative",
           "title": "Total Flights from 1975-2025",
-          "legend": null,
+          "legend": {"orient": "bottom"},
           "scale":{"rangeMin":100, "rangeMax":500}
         },
           "tooltip": [
