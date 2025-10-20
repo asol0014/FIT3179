@@ -1,0 +1,62 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width":"container",
+  "params": [
+    {
+      "name": "highlight",
+      "select": {"type": "point", "fields": ["Reasonforjourney"], "on": "mouseover"},
+      "bind": "legend"
+    }
+  ],
+
+  "data": {
+    "url": "https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/data/reason_v2_processed.csv"
+  },
+  "transform": [
+    {"calculate": "datum.percentage + '%'", "as": "percentage_label"}
+  ],
+  "mark": {
+    "type": "area",
+    "line":true,
+  },
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "ordinal",
+      "timeUnit":"year",
+      "axis": {"title": "Year", "tickCount": 8}
+    },
+    "y": {
+      "field": "OBS_VALUE",
+      "type": "quantitative",
+      "axis": {"title": "Percentage of travellers"},
+      "stack": "normalize"
+
+    },
+    "color": {
+      "field": "Reasonforjourney",
+      "type": "nominal",
+      "scale": {
+          "domain": ["Employment", "Holiday", "Education", "Visiting friends/relatives", "Other & not stated", "Business", "Convention/conference"],
+          "range": ["#b2df8a", "#a6cee3", "#fb9a99", "#1f78b4", "lightgrey", "#fdbf6f", "#33a02c"]
+        },
+      "legend": {
+          "orient": "bottom",
+          "direction": "horizontal",
+          "title": "Reason for travel",
+          "symbolSize": 100,
+          "titleFontSize": 16,
+          "labelFontSize": 14
+      }
+    },
+    "opacity": {
+      "condition": {"param": "highlight", "value": 0.8},
+      "value": 0.5
+    },
+    "tooltip": [
+      {"field": "Reasonforjourney", "type": "nominal", "title": "Reason for travel"},
+      {"field": "year", "type": "temporal", "title": "Year", "format":"%Y"},
+      {"field": "percentage_label", "type": "nominal", "title": "Percentage" }
+    ]
+  }
+}
