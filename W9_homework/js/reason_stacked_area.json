@@ -4,7 +4,7 @@
   "params": [
     {
       "name": "highlight",
-      "select": {"type": "point", "fields": ["Reasonforjourney"], "on": "mouseover"},
+      "select": {"type": "point", "on": "mouseover", "clear":"mouseout"},
       "bind": "legend"
     }
   ],
@@ -16,8 +16,8 @@
     {"calculate": "datum.percentage + '%'", "as": "percentage_label"}
   ],
   "mark": {
-    "type": "area",
-    "line":true
+    "type": "bar",
+    "opacity":0.8
   },
   "encoding": {
     "x": {
@@ -50,7 +50,7 @@
       }
     },
     "opacity": {
-      "condition": {"param": "highlight", "value": 0.8},
+      "condition": {"param": "highlight", "value": 0.9},
       "value": 0.5
     },
     "tooltip": [
