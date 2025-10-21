@@ -1,25 +1,36 @@
 body *{
-  font-family: "FrutigerLTStd-Light", sans-serif;
+  font-family: "FrutigerLTStd-Roman", sans-serif;
 }
 
 h1 {
   font-family: "Flipboard JNL", sans-serif;
-  font-weight: 900;
   text-align: center;
+  font-size: 60px;
+  color: #1f78b4
 }
 
 h2 {
-  font-weight: 350;
+  font-size: 47px;
   text-align: center;
+  color: #1f78b4;
 }
 
 h3 {
-  font-weight: 700;
   text-align: center;
+  font-size: 30px;
+}
+
+h4 {
+  text-align: center;
+  font-size: 24px;
+  font-family: "FrutigerLTStd-Light"
+
 }
 
 p {
-  font-weight: 550;
+  text-align: justify;
+  font-size: 13;
+
 }
 
 body {
@@ -60,15 +71,16 @@ h1 {
 }
 
 /* Custom CSS in your external stylesheet or <style> block */
-.my-colored-div {
+.grey-background {
   background-color: #f0f0f0; /* A light grey color */
-  padding: 1em; /* Add some padding so the color is visible */
+  padding: 0.5em; /* Add some padding so the color is visible */
 }
 
-.another-color {
-  background-color: #add8e6; /* Light blue */
-  color: #333; /* Set a contrasting text color */
-  padding: 1.5em;
+.light-blue-background {
+  background-color: #a6cee3; /* Light blue */
+  color: white; /* Set a contrasting text color */
+  padding: 0.5em; /* Add some padding so the color is visible */
+
 }
 /* Custom CSS in your external stylesheet */
 .highlight-paragraph {
