@@ -80,7 +80,10 @@ h1 {
   background-color: #a6cee3; /* Light blue */
   color: white; /* Set a contrasting text color */
   padding: 0.5em; /* Add some padding so the color is visible */
-
+}
+.light-orange-background {
+  background-color: #fff5e3; /* Light blue */
+  padding: 0.5em; /* Add some padding so the color is visible */
 }
 /* Custom CSS in your external stylesheet */
 .highlight-paragraph {
