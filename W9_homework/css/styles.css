@@ -34,6 +34,11 @@ p {
   font-size: 20px;
 
 }
+p1 {
+  text-align: justify;
+  font-size: 18px;
+
+}
 
 body {
   background-color: lightgray;
