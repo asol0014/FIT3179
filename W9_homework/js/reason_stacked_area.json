@@ -38,7 +38,7 @@
       "type": "nominal",
       "scale": {
           "domain": ["Employment", "Holiday", "Education", "Visiting friends/relatives", "Other & not stated", "Business", "Convention/conference"],
-          "range": ["#b2df8a", "#a6cee3", "#fb9a99", "#1f78b4", "lightgrey", "#fdbf6f", "#33a02c"]
+          "range": ["#6a3d9a", "#a6cee3", "#fb9a99", "#1f78b4", "lightgrey", "#fdbf6f", "#33a02c"]
         },
       "legend": {
           "orient": "bottom",
