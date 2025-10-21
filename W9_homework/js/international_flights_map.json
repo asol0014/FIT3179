@@ -15,6 +15,18 @@
         "mark": {"type": "geoshape", "fill": "lightgray", "stroke":"white"}
     },
     {
+      "params": [
+        {
+          "name": "highlight_circle", 
+          "select": {
+            "type": "point", 
+            "fields": ["Int_Acm_Total_Sum"], 
+            "on": "mouseover", 
+            "clear":"mouseout"
+          },
+          "bind": "legend"
+        }
+      ],
       "data": {
           "url": "https://raw.githubusercontent.com/asol0014/FIT3179/main/W9_homework/data/aircraft.csv"
         },
@@ -48,10 +60,14 @@
         ],
       "mark": {"type": "circle", "opacity": 0.8, "width": 10, "tooltip": true, "color":"#ff7f00"},
       "encoding": {
+        "opacity": {
+          "condition": {"param": "highlight_circle", "value": 0.9},
+          "value": 0.5
+        },
         "longitude": {"field": "longitude", "type": "quantitative"},
         "latitude": {"field": "latitude", "type": "quantitative"},
         "size": {
-          "field": "Dom_Acm_Total_Sum",
+          "field": "Int_Acm_Total_Sum",
           "type": "quantitative",
           "title": "Total Flights from 1975-2025",
           "legend": {"orient": "bottom"},

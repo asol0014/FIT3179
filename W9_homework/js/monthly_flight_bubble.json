@@ -3,12 +3,12 @@
   "params": [
     {
       "name": "highlight_in",
-      "select": {"type": "point", "fields": ["Acm_binned"], "on": "mouseover"},
+      "select": {"type": "point", "fields": ["Acm_binned"], "on": "mouseover",  "clear":"mouseout"},
       "bind": "legend"
     },
     {
       "name": "highlight_out",
-      "select": {"type": "point", "fields": ["Acm_binned"], "on": "mouseover"},
+      "select": {"type": "point", "fields": ["Acm_binned"], "on": "mouseover", "clear":"mouseout"},
       "bind": "legend"
     },
     {
