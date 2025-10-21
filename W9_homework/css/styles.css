@@ -18,6 +18,7 @@ h2 {
 h3 {
   text-align: center;
   font-size: 30px;
+  color: #1f78b4;
   
 }
 
@@ -78,8 +79,7 @@ h1 {
 }
 
 .light-blue-background {
-  background-color: #a6cee3; /* Light blue */
-  color: white; /* Set a contrasting text color */
+  background-color: aliceblue; /* Light blue */
   padding: 0.5em; /* Add some padding so the color is visible */
 }
 .light-orange-background {
